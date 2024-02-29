@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/blue_b_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/blue_b_1"
+        android:scaleType="fitXY"
+        android:src="@drawable/blue_b_1_ek1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <RelativeLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="@+id/blue_b_1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+        <ImageView
+            android:id="@+id/backFromProfile"
+            android:layout_width="18dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+
+            android:layout_marginTop="10dp"
+            android:contentDescription="backArrow"
+            android:src="@drawable/arrowback" />
+
+        <TextView
+            android:layout_width="143dp"
+            android:layout_height="36dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/backFromProfile"
+            android:text="Profile"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="43dp"
+            tools:layout_editor_absoluteY="61dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/profile_Lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/navigation_bar"
+        app:layout_constraintStart_toStartOf="@+id/navigation_bar"
+        app:layout_constraintTop_toBottomOf="@+id/navigation_bar"
+        tools:ignore="MissingConstraints">
+
+
+        <RelativeLayout
+            android:id="@+id/card_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp" />
+
+
+        <RelativeLayout
+            android:id="@+id/dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp">
+
+            <ImageView
+                android:id="@+id/dp_bg"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:contentDescription="dp_bg"
+                android:src="@drawable/dp_bg" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/class_xi_b_roll_no__04"
+            android:layout_width="144.8dp"
+            android:layout_height="25.8dp"
+            android:layout_marginLeft="99dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/class_xi_b_roll_no__04_string"
+            android:textColor="@color/class_xi_b_roll_no__04_color"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/akshay_syal"
+            android:layout_width="211dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="99dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/akshay_syal_string"
+            android:textColor="@color/_bg__background_ek1_color"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <RelativeLayout
+            android:id="@+id/ic_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="302dp"
+            android:layout_marginTop="18dp">
+
+            <View
+                android:id="@+id/_bg__ic_camera_ek1"
+                android:layout_width="20.77dp"
+                android:layout_height="18.18dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/_bg__ic_camera_ek1_shape" />
+
+
+            <RelativeLayout
+                android:id="@+id/ic_camera_ek2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp">
+
+                <View
+                    android:id="@+id/_bg__ic_camera_ek3"
+                    android:layout_width="20.77dp"
+                    android:layout_height="18.18dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/_bg__ic_camera_ek3_shape" />
+
+                <ImageView
+                    android:id="@+id/ic_camera_2"
+                    android:layout_width="20.77dp"
+                    android:layout_height="18.18dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:contentDescription="ic_camera_2"
+                    android:src="@drawable/ic_camera_2" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="399dp"
+        android:layout_height="1262dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/curve_bg_ek1"
+        app:layout_constraintEnd_toEndOf="@+id/profile_Lay"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/profile_Lay"
+        app:layout_constraintTop_toBottomOf="@+id/profile_Lay">
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <TextView
+              android:id="@+id/personal_detail"
+              android:layout_width="287.5dp"
+              android:layout_height="45.5dp"
+              android:layout_marginLeft="16dp"
+              android:layout_marginTop="20dp"
+              android:text="@string/personal_detail_string"
+              android:textColor="@color/_bg__background_ek1_color"
+              android:textSize="25sp"
+              android:textStyle="bold" />
+          <View   android:id="@+id/rectangle_1"
+              android:background="@drawable/rectangle_1_shape"
+              android:layout_marginStart="17dp"
+              android:layout_below="@id/personal_detail"
+              android:layout_width="match_parent"
+              android:layout_height="3dp" />
+
+      </RelativeLayout>
+
+
+
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

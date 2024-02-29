@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+
+    android:layout_width="match_parent"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardAssignment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="46dp">
+
+
+        <TextView
+            android:id="@+id/subjectName_ve"
+            android:layout_width="310dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="10dp"
+
+            android:hint="Subject Name Here"
+            android:textColor="@color/structure_of_atoms_color"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/teacherName_ve" />
+
+        <TextView
+            android:id="@+id/assign_date_3"
+            android:layout_width="115dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="Assigned Date"
+
+            android:textColor="@color/assign_date_3_color"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="@+id/subjectName_ve"
+            app:layout_constraintTop_toBottomOf="@+id/subjectName_ve" />
+
+        <TextView
+            android:id="@+id/last_submission_date_3"
+            android:layout_width="115dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="5dp"
+            android:text="Exam Date"
+            android:textColor="@color/assign_date_3_color"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/assign_date_3"
+            app:layout_constraintStart_toStartOf="@+id/assign_date_3"
+            app:layout_constraintTop_toBottomOf="@+id/assign_date_3" />
+
+        <TextView
+            android:id="@+id/last_submission_date_3_ek1"
+            android:layout_width="115dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="5dp"
+            android:text="Marks"
+            android:textColor="@color/assign_date_3_color"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/last_submission_date_3"
+            app:layout_constraintStart_toStartOf="@+id/last_submission_date_3"
+            app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3"
+            tools:ignore="DuplicateIds" />
+
+        <TextView
+            android:id="@+id/daetAss_ve"
+            android:layout_width="154dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/__10_oct_20_color"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/subjectName_ve"
+            app:layout_constraintTop_toBottomOf="@+id/subjectName_ve" />
+
+        <TextView
+            android:id="@+id/markss_ve"
+            android:layout_width="154dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/__10_oct_20_color"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/daetAss_ve"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/daetAss_ve"
+            app:layout_constraintTop_toBottomOf="@+id/examDate_ve" />
+
+        <TextView
+            android:id="@+id/examDate_ve"
+            android:layout_width="154dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="5dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/daetAss_ve"
+            app:layout_constraintTop_toBottomOf="@+id/daetAss_ve" />
+
+        <TextView
+            android:id="@+id/teacherName_ve"
+            android:layout_width="272dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:hint="Teacher Name Here"
+            android:textColor="@color/science_color"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/del_e"
+            android:layout_width="32dp"
+            android:layout_height="34dp"
+            app:layout_constraintBottom_toBottomOf="@+id/teacherName_ve"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/teacherName_ve"
+            app:layout_constraintTop_toTopOf="@+id/teacherName_ve"
+            app:srcCompat="@drawable/delete_icon" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="305dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="5dp"
+            android:text="Topic Description"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/markss_ve"
+            app:layout_constraintStart_toStartOf="@+id/last_submission_date_3_ek1"
+            app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3_ek1" />
+
+        <EditText
+            android:id="@+id/txtArea_ve"
+            android:layout_width="305dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

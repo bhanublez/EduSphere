@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#008577</color>
+	<color name="colorPrimaryDark">#00574B</color>
+	<color name="colorAccent">#D81B60</color>
+	<color name="purple_200">#FFBB86FC</color>
+	<color name="purple_500">#FF6200EE</color>
+	<color name="purple_700">#FF3700B3</color>
+	<color name="teal_200">#FF03DAC5</color>
+	<color name="teal_700">#FF018786</color>
+
+    <color name="_bg___01_splash_ek2_color">#FFFFFF</color>
+	<color name="_bg___5_exam_ek2_color">#FFFFFF</color>
+	<color name="_bg___5_assignment_ek2_color">#FFFFFF</color>
+	<color name="_bg__button_ek1_color">#000000</color>
+	<color name="ellipse_2_color">#3292E5</color>
+	<color name="_bg___02_login_ek2_color">#FFFFFF</color>
+	<color name="_bg__background_ek1_color">#000000</color>
+	<color name="forgot_password__color">#313131</color>
+	<color name="oval_color">#323643</color>
+	<color name="input_title_copy_color">#A5A5A5</color>
+	<color name="border_color">#E1E3E8</color>
+	<color name="rectangle_ek2_color">#D3D3D3</color>
+	<color name="rectangle_color">#D3D3D3</color>
+	<color name="assign_date_color">#777777</color>
+	<color name="_10_nov_20_color">#3A3A3A</color>
+	<color name="mathematics_color">#6789CA</color>
+	<color name="surface_areas_and_volumes_color">#313131</color>
+	<color name="structure_of_atoms_color">#313131</color>
+	<color name="assign_date_3_color">#777777</color>
+	<color name="__10_oct_20_color">#3A3A3A</color>
+	<color name="science_color">#6789CA</color>
+	<color name="_bg___6_date_sheet_ek2_color">#FFFFFF</color>
+	<color name="paul_jameson_work_co_color">#323643</color>
+	<color name="border__color">#DBDBDB</color>
+	<color name="_bg___7_announcement_ek2_color">#FFFFFF</color>
+	<color name="sleepover_night_color">#313131</color>
+	<color name="__06_jan_21_09_00_am_color">#6789CA</color>
+	<color name="a_sleepover_is_a_great_treat_for_kids__many_schools_use_such_an_event_as_the_culminating_activity_of_the_school_year___color">#777777</color>
+	<color name="rectangle_ek4_color">#D3D3D3</color>
+	<color name="_bg___9_subject_ek2_color">#FFFFFF</color>
+	<color name="_bg___15_test_allotment_ek2_color">#FFFFFF</color>
+	<color name="_bg___17_teacheradd_ek2_color">#FFFFFF</color>
+	<color name="rectangle_243_color">#ffffff</color>
+	<color name="enter_phone_number_color">#807B7B</color>
+	<color name="_bg___10_timetable_ek2_color">#FFFFFF</color>
+	<color name="computer_science_color">#313131</color>
+	<color name="__08_15am___9_00am_color">#777777</color>
+	<color name="period_1_color">#3A3A3A</color>
+
+	<color name="_bg___04_profile_ek2_color">#FFFFFF</color>
+	<color name="done_2_color">#6688CA</color>
+	<color name="class_xi_b_roll_no__04_color">#777777</color>
+
+	<color name="_bg__profile_edit_ek1_color">#000000</color>
+	<color name="text_color">#323643</color>
+	<color name="label_color">#A5A5A5</color>
+
+	<color name="_bg___03_dashboard_ek2_color">#FFFFFF</color>
+	<color name="_bg__bars_status_bar_iphone_light_ek1_color">#000000</color>
+	<color name="_bg__dashboard_ek1_color">#000000</color>
+	<color name="__2020_2021_color">#6184C7</color>
+
+
+	
+</resources>
