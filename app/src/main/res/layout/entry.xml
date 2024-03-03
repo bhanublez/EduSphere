@@ -100,14 +100,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.192">
 
-        <View
-            android:id="@+id/_bg__group_8027_ek1"
-            android:layout_width="139.94dp"
-            android:layout_height="110dp"
-            android:layout_marginStart="-1dp"
-            android:layout_marginTop="-140dp"
-            android:background="@drawable/_bg__group_8027_ek1_shape" />
-
         <ImageView
             android:id="@+id/path_44098"
             android:layout_width="79.25dp"

@@ -91,7 +91,7 @@
 									android:textStyle="bold" />
 
 								<TextView
-									android:id="@+id/class_xi_b_roll_no__04"
+									android:id="@+id/enrollmentNumber"
 									android:layout_width="240.61dp"
 									android:layout_height="29.94dp"
 									android:layout_marginLeft="1dp"
