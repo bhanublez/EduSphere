@@ -25,6 +25,8 @@
         <activity android:name=".addAssignment" />
         <activity android:name=".addExam"/>
 
+        <activity android:name=".TeacherView"/>
+
 
     </application>
 

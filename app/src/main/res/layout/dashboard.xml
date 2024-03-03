@@ -398,6 +398,7 @@
 										android:layout_marginLeft="20dp"
 										android:layout_marginTop="89dp"
 										android:text="@string/teachers_string"
+										android:onClick="goToTeacherList"
 										android:textColor="@color/_bg__bars_status_bar_iphone_light_ek1_color"
 										android:textSize="18sp" />
 									<RelativeLayout

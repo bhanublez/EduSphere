@@ -30,5 +30,15 @@ public class dashBoard extends AppCompatActivity{
         }
 
     }
+
+    public void oToTeacherList(View view){
+        try {
+            Intent intent = new Intent(this, TeacherView.class);
+            this.startActivity(intent);
+        } catch (Exception e) {
+            System.out.println("This is error" + e);
+        }
+
+    }
 }
 

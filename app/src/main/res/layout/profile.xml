@@ -160,9 +160,9 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="399dp"
-        android:layout_height="1262dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
         android:background="@drawable/curve_bg_ek1"
         app:layout_constraintEnd_toEndOf="@+id/profile_Lay"
         app:layout_constraintHorizontal_bias="0.517"
@@ -171,8 +171,11 @@
 
 
       <RelativeLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="10dp"
+
+          >
           <TextView
               android:id="@+id/personal_detail"
               android:layout_width="287.5dp"
