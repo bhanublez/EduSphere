@@ -1,6 +1,5 @@
-package com.service.dynamic_view;
+package com.service.dynamic_view.studentLayouts;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,19 +9,22 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.service.dynamic_view.R;
+
 public class TeacherView extends AppCompatActivity {
     LinearLayout layout;
     ImageView back;
-    TextView title_id = findViewById(R.id.title_id);
+    TextView title_id ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewcontainer);
         layout= findViewById(R.id.viewContainer);
         back=findViewById(R.id.back_icon);
+        title_id=findViewById(R.id.title_id);
         title_id.setText("Teacher List");
         
-//        addCards();
+        addCards();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +34,6 @@ public class TeacherView extends AppCompatActivity {
         });
     }
 
-    @SuppressLint("MissingInflatedId")
     public void addCards() {
 
         String name, subject,subCode;
@@ -43,7 +44,6 @@ public class TeacherView extends AppCompatActivity {
         addCard(name, subject,subCode);
     }
 
-    @SuppressLint("MissingInflatedId")
     private void addCard(String name, String subject,String subCode) {
 
 

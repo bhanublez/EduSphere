@@ -1,6 +1,5 @@
-package com.service.dynamic_view;
+package com.service.dynamic_view.teacherLayouts;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,12 +13,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.service.dynamic_view.R;
+import com.service.dynamic_view.studentLayouts.dashBoard;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class addExam extends AppCompatActivity {
+public class addAssignment extends AppCompatActivity {
     AlertDialog dialog;
     LinearLayout layout;
     ImageView add;
@@ -29,11 +31,10 @@ public class addExam extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.examall);
-
-        add = findViewById(R.id.addExam);
-        layout = findViewById(R.id.examContainer);
-        back=findViewById(R.id.backFromExam);
+        setContentView(R.layout.assignmentallotment);
+        add = findViewById(R.id.addBlock);
+        layout = findViewById(R.id.addContainer);
+        back=findViewById(R.id.backArrowOfAm);
 
         buildDialog();
 
@@ -47,28 +48,30 @@ public class addExam extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(addExam.this, dashBoard.class);
+                Intent intent = new Intent(addAssignment.this, dashBoard.class);
                 startActivity(intent);
             }
         });
 
     }
 
-    @SuppressLint("MissingInflatedId")
     private void buildDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = getLayoutInflater().inflate(R.layout.examallot, null);
+        View view = getLayoutInflater().inflate(R.layout.assignmentdialog, null);
 
-        final EditText name = view.findViewById(R.id.teacherName_e);
-        final EditText subject = view.findViewById(R.id.subNaam_e);
-        final  EditText adate1=view.findViewById(R.id.assDate_e);
-        final  EditText adate2=view.findViewById(R.id.exam_date_e);
-        final  EditText txtArea=view.findViewById(R.id.txt_area_e);
-        final  EditText marks;
-        marks = view.findViewById(R.id.marks_e);
+        final EditText name = view.findViewById(R.id.teacherNaam_aa);
+        final EditText subject = view.findViewById(R.id.subjectName_a);
+        final  EditText adate1=view.findViewById(R.id.assDate_a);
+        final  EditText adate2=view.findViewById(R.id.subDate_a);
+        final  EditText set=view.findViewById(R.id.set_id_a);
+        final  EditText marks=view.findViewById(R.id.marks_a);
+
+
+
+
 
         builder.setView(view);
-        builder.setTitle("Enter Exam Details")
+        builder.setTitle("Enter Details")
 
 
 
@@ -79,14 +82,14 @@ public class addExam extends AppCompatActivity {
                         String subjectText = subject.getText().toString().trim();
                         String adate1Text = adate1.getText().toString().trim();
                         String adate2Text = adate2.getText().toString().trim();
-                        String data=txtArea.getText().toString().trim();
-                        int mks=-1;
+                        int setNumber=-1,mks=-1;
                         try {
-                            mks = Integer.parseInt(marks.getText().toString().trim());
+                            setNumber = Integer.parseInt(set.getText().toString().trim());
+                            mks=Integer.parseInt(marks.getText().toString().trim());
                         }catch (Exception e){
                             Toast.makeText(getApplicationContext(), "Please enter valid Digit", Toast.LENGTH_SHORT).show();
                         }
-                        if (!nameText.isEmpty() && !subjectText.isEmpty() && !adate1Text.isEmpty() && !adate2Text.isEmpty() && (mks >=1)) {
+                         if (!nameText.isEmpty() && !subjectText.isEmpty() && !adate1Text.isEmpty() && !adate2Text.isEmpty() && (setNumber >= 1)) {
                             // Check date formats
                             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                             try {
@@ -95,7 +98,7 @@ public class addExam extends AppCompatActivity {
                                 Date date2 = dateFormat.parse(adate2Text);
 
                                 // Proceed with your logic
-                                addCard(nameText,subjectText,date1,date2,mks,data);
+                                addCard(nameText,subjectText,adate1Text,adate2Text,setNumber,mks);
                             } catch (ParseException e) {
                                 // Show toast indicating date format error
                                 Toast.makeText(getApplicationContext(), "Please enter dates in the format yyyy-MM-dd", Toast.LENGTH_SHORT).show();
@@ -116,34 +119,37 @@ public class addExam extends AppCompatActivity {
         dialog = builder.create();
     }
 
-    private void addCard(String name,String subject,Date adate,Date sdate,int set,String data) {
-
-
-       final View view2 =getLayoutInflater().inflate(R.layout.examdialog,null);
+    private void addCard(String name,String subject,String adate,String sdate,int set,int mks) {
 
 
 
-        TextView nameView = view2.findViewById(R.id.teacherName_ve);
-        TextView subjectView = view2.findViewById(R.id.subjectName_ve);
+//        final View view = getLayoutInflater().inflate(R.layout.card, null);
+        final View view2 =getLayoutInflater().inflate(R.layout.dialog_assignment,null);
 
-        TextView assDate = view2.findViewById(R.id.daetAss_ve);
-        TextView subDate = view2.findViewById(R.id.examDate_ve);
+//        TextView nameView = view.findViewById(R.id.name);
 
-        TextView mksId = view2.findViewById(R.id.markss_ve);
-        TextView setId = view2.findViewById(R.id.txtArea_ve);
 
-        ImageView delete=view2.findViewById(R.id.del_e);
+        TextView nameView = view2.findViewById(R.id.teacherNaam_va);
+        TextView subjectView = view2.findViewById(R.id.nameSub_va);
+        TextView subDate = view2.findViewById(R.id.subDate_va);
+        TextView assDate = view2.findViewById(R.id.assDate_va);
+        TextView setId = view2.findViewById(R.id.setId_va);
+        TextView mksId = view2.findViewById(R.id.marks_va);
 
-        // Set values to respective TextViews
-        nameView.setText(name);
-        subjectView.setText(subject);
-        // Assuming adate and sdate are Date objects and you want to display them as strings
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        assDate.setText(dateFormat.format(adate));
-        subDate.setText(dateFormat.format(sdate));
-        mksId.setText(String.valueOf(set)); // Assuming set is an integer
-        setId.setText(data);
+//        Button delete = view.findViewById(R.id.delete);
+        ImageView delete=view2.findViewById(R.id.delID);
+        try {
+            nameView.setText(name);
+            subjectView.setText(subject);
+            subDate.setText((CharSequence) subDate);
+            assDate.setText(String.format("%s", assDate));
+            setId.setText("" + set);
+            mksId.setText("" + mks);
+        }catch (Exception e){
+            System.out.println(("Kuch toh gadbad hai"));
+        }
 
+        //
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override

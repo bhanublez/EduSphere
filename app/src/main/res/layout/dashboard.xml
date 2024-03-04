@@ -444,6 +444,7 @@
 										android:layout_marginLeft="20dp"
 										android:layout_marginTop="89dp"
 										android:text="@string/subjects_string"
+										android:onClick="goToSubjectList"
 										android:textColor="@color/_bg__bars_status_bar_iphone_light_ek1_color"
 										android:textSize="18sp" />
 									<RelativeLayout
@@ -1931,6 +1932,7 @@
 									android:id="@+id/profile_bg"
 									android:layout_width="90dp"
 									android:layout_height="99dp"
+									android:onClick="goToProfile"
 									android:contentDescription="profile_bg"
 									android:src="@drawable/profile_bg"
 									tools:layout_editor_absoluteX="257dp"

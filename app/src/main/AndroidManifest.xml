@@ -21,11 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".dashBoard" />
-        <activity android:name=".addAssignment" />
-        <activity android:name=".addExam"/>
+        <activity android:name=".studentLayouts.dashBoard" />
+        <activity android:name=".teacherLayouts.addAssignment" />
+        <activity android:name=".teacherLayouts.addExam"/>
 
-        <activity android:name=".TeacherView"/>
+        <activity android:name=".studentLayouts.TeacherView"/>
+        <activity android:name=".studentLayouts.subjectView"/>
+        <activity android:name=".studentLayouts.examView"/>
+        <activity android:name=".studentLayouts.assignmentView"/>
+        <activity android:name=".studentLayouts.profileView"/>
+
 
 
     </application>

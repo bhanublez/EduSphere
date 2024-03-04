@@ -6,14 +6,16 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:layout_width="358dp"
-        android:layout_height="282dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curve_bg_ek1"
         android:padding="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cardAssignment"
-            android:layout_width="344dp"
-            android:layout_height="253dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/curve_bg_ek1"
             tools:layout_editor_absoluteX="47dp"
             tools:layout_editor_absoluteY="34dp">
 

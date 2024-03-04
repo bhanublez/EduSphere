@@ -1,16 +1,15 @@
 package com.service.dynamic_view.studentLayouts;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.service.dynamic_view.R;
-import com.service.dynamic_view.dashBoard;
 
 public class profileView extends AppCompatActivity {
     ImageView back;
@@ -45,7 +44,7 @@ public class profileView extends AppCompatActivity {
         bloodGroup="O+";
         Religion="Hindu";
         section="A";
-        addPersonal(adhar,studentId,Degree,Dob,Category,motherName,fatherName,gender,bloodGroup,Religion,section);
+//        addPersonal(adhar,studentId,Degree,Dob,Category,motherName,fatherName,gender,bloodGroup,Religion,section);
 
         //add Contact
         String email,phone,fathernumber,fatherEmail,Peraddress,tempAdd,district,state,country,pincode;
@@ -59,7 +58,7 @@ public class profileView extends AppCompatActivity {
         state="Delhi";
         country="India";
         pincode="110001";
-        addContact(email,phone,fathernumber,fatherEmail,Peraddress,tempAdd,district,state,country,pincode);
+//        addContact(email,phone,fathernumber,fatherEmail,Peraddress,tempAdd,district,state,country,pincode);
 
         //add Data
         String name,enrllmentNumber;
@@ -117,11 +116,14 @@ private void addContact(String email,String phone,String fathernumber,String fat
                                 countryView.setText(country);
                                 pincodeView.setText(pincode);
     }
-    @SuppressLint("MissingInflatedId")
+
     private void addData(String name,String enrllmentNumber){
         final View view2 =getLayoutInflater().inflate(R.layout.profile,null);
          TextView nameView = view2.findViewById(R.id.studentName);
         TextView enrllmentNumberView = view2.findViewById(R.id.enrollmentNumber);
+        nameView.setText(name);
+        Toast.makeText(this, "Name "+name+" ", Toast.LENGTH_SHORT).show();
+        enrllmentNumberView.setText(enrllmentNumber);
     }
 
 }

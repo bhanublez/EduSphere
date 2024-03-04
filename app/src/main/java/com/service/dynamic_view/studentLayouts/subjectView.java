@@ -11,21 +11,21 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.service.dynamic_view.R;
-import com.service.dynamic_view.dashBoard;
 
 public class subjectView extends AppCompatActivity {
     LinearLayout layout;
     ImageView back;
-    TextView title_id = findViewById(R.id.title_id);
+    TextView title_id ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewcontainer);
         layout= findViewById(R.id.viewContainer);
         back=findViewById(R.id.back_icon);
+        title_id=findViewById(R.id.title_id);
         title_id.setText("Register Subjects");
 
-//        addCards();
+        addCards();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,26 +38,26 @@ public class subjectView extends AppCompatActivity {
     @SuppressLint("MissingInflatedId")
     public void addCards() {
 
-        String name, subject;
+        String code, subject;
         //Sample inputs
-        name = "Teacher Name";
+        code = "Teacher Name";
         subject = "Subject Name";
-        addCard(name, subject);
+        addCard(code, subject);
     }
 
     @SuppressLint("MissingInflatedId")
-    private void addCard(String name, String subject) {
+    private void addCard(String ccode, String subject) {
 
 
         final View view2 =getLayoutInflater().inflate(R.layout.subjects,null);
 
 
-//        TextView nameView = view2.findViewById(R.id.teacherID);
-//        TextView subjectView = view2.findViewById(R.id.subId);
+        TextView code = view2.findViewById(R.id.subCode2);
+        TextView subjectView = view2.findViewById(R.id.subId2);
 
-        // Set values to respective TextViews
-//        nameView.setText(name);
-//        subjectView.setText(subject);
+//         Set values to respective TextViews
+        code.setText(ccode);
+        subjectView.setText(subject);
 
         layout.addView(view2);
     }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/liT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:background="@color/white"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="69dp">
+
+
+        <TextView
+            android:id="@+id/subject_name_T"
+            android:layout_width="wrap_content"
+            android:layout_height="24.4dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="13dp"
+            android:hint="Enter Subject Name"
+            android:textColor="@color/computer_science_color"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/duration_slot"
+            android:layout_width="wrap_content"
+            android:layout_height="22.4dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="41dp"
+            android:hint="Enter Duration"
+            android:textColor="@color/__08_15am___9_00am_color"
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/border_"
+            android:layout_width="312.85dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="73dp"
+            android:background="@drawable/border__shape" />
+
+        <TextView
+            android:id="@+id/faculty_name"
+            android:layout_width="wrap_content"
+            android:layout_height="22.4dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="82dp"
+            android:hint="Enter Faculty Name"
+            android:textColor="@color/__08_15am___9_00am_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/periodNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="24.4dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="82dp"
+            android:text="@string/period_1_string"
+            android:textColor="@color/period_1_color"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

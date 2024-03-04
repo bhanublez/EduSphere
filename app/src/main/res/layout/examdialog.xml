@@ -3,15 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-
     android:layout_width="match_parent"
     tools:ignore="MissingDefaultResource">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardAssignment"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+
         tools:ignore="MissingConstraints"
+        android:background="@drawable/curve_bg_ek1"
         tools:layout_editor_absoluteX="31dp"
         tools:layout_editor_absoluteY="46dp">
 

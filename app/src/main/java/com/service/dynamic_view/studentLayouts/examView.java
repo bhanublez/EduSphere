@@ -12,22 +12,18 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.service.dynamic_view.R;
-import com.service.dynamic_view.dashBoard;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class examView extends AppCompatActivity {
     LinearLayout layout;
     ImageView back;
-    TextView title_id = findViewById(R.id.title_id);
+    TextView title_id ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewcontainer);
         layout= findViewById(R.id.viewContainer);
         back=findViewById(R.id.back_icon);
+        title_id=findViewById(R.id.title_id);
         title_id.setText("Exams");
 
         addCards();
@@ -47,16 +43,16 @@ public class examView extends AppCompatActivity {
         String name, subject, adata,sdata, data;
         int set;
         //Sample inputs
-        name = "Teacher Name";
-        subject = "Subject Name";
+        name = "Teacher Naam";
+        subject = "Subject Naam";
         adata = "2021-12-12";
         sdata = "2021-12-12";
         set = 100;
         data = "Sample Data";
-        addCard(name, subject, new Date(), new Date(), set, data);
+        addCard(name, subject, adata,sdata, set, data);
     }
 
-    private void addCard(String name, String subject, Date adate, Date sdate, int set, String data) {
+    private void addCard(String name, String subject, String adate, String sdate, int set, String data) {
 
 
         final View view2 =getLayoutInflater().inflate(R.layout.examdialog,null);
@@ -65,27 +61,27 @@ public class examView extends AppCompatActivity {
 
         TextView nameView = view2.findViewById(R.id.teacherName_ve);
         TextView subjectView = view2.findViewById(R.id.subjectName_ve);
-
+//
         TextView assDate = view2.findViewById(R.id.daetAss_ve);
         TextView subDate = view2.findViewById(R.id.examDate_ve);
-
+//
         TextView mksId = view2.findViewById(R.id.markss_ve);
         TextView setId = view2.findViewById(R.id.txtArea_ve);
-
+//
         ImageView delete=view2.findViewById(R.id.del_e);
 
         // Set values to respective TextViews
         nameView.setText(name);
         subjectView.setText(subject);
-        // Assuming adate and sdate are Date objects and you want to display them as strings
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        assDate.setText(dateFormat.format(adate));
-        subDate.setText(dateFormat.format(sdate));
-        mksId.setText(String.valueOf(set)); // Assuming set is an integer
+        assDate.setText(adate);
+        subDate.setText(sdate);
+        mksId.setText(String.valueOf(set));
         setId.setText(data);
+        //diable the setId
+        setId.setEnabled(false);
 
         //Remove the view of delete ImageView
-        layout.removeView(delete);
+        delete.setVisibility(View.GONE);
 
         layout.addView(view2);
     }
