@@ -13,22 +13,26 @@
         android:contentDescription="@string/blue_b_1"
         android:scaleType="fitXY"
         android:src="@drawable/blue_b_1_ek1" />
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="62dp">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
         <ImageView
             android:id="@+id/back_icon"
             android:layout_width="18dp"
             android:layout_height="35dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:contentDescription="backArrow"
             android:src="@drawable/arrowback" />
+
         <TextView
             android:id="@+id/title_id"
             android:layout_width="wrap_content"
@@ -181,15 +185,15 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="603dp"
-        android:layout_height="758dp"
+        android:layout_width="match_parent"
+        android:layout_height="762dp"
         android:layout_marginTop="6dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/blue_b_1"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.542">
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:id="@+id/viewContainer"
@@ -198,6 +202,18 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical" />
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/add_Slot"
+        android:layout_width="58dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="25dp"
+        android:onClick="addSlot"
+        android:scaleType="fitXY"
+        android:src="@drawable/addentry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

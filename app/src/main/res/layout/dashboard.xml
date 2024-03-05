@@ -56,10 +56,10 @@
 
 						<androidx.constraintlayout.widget.ConstraintLayout
 							android:id="@+id/page__03_dashboard_ek1"
-							android:layout_width="386dp"
-							android:layout_height="1313dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
 							android:layout_alignParentEnd="true"
-							android:layout_marginStart="0dp"
+							android:layout_marginStart="20dp"
 							android:layout_marginTop="0dp"
 							android:layout_marginEnd="11dp">
 
@@ -156,8 +156,8 @@
 
 							<androidx.constraintlayout.widget.ConstraintLayout
 								android:id="@+id/dashboard"
-								android:layout_width="352dp"
-								android:layout_height="952dp"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
 								android:layout_marginTop="15dp"
 								android:layout_marginEnd="9dp"
 								app:layout_constraintBottom_toBottomOf="parent"
@@ -181,6 +181,7 @@
 										android:layout_height="133dp"
 										android:layout_marginStart="0dp"
 										android:layout_marginTop="0dp"
+										android:onClick="goToPassChange"
 										android:src="@drawable/bg_3" />
 
 									<TextView
@@ -229,6 +230,7 @@
 										android:layout_width="154dp"
 										android:layout_height="133dp"
 										android:layout_marginStart="0dp"
+										android:onClick="goToExam"
 										android:layout_marginTop="0dp"
 										android:src="@drawable/bg_3" />
 
@@ -388,6 +390,7 @@
 										android:layout_width="154dp"
 										android:layout_height="133dp"
 										android:layout_marginStart="0dp"
+										android:onClick="goToTeacherList"
 										android:layout_marginTop="0dp"
 										android:src="@drawable/bg_3" />
 
@@ -398,7 +401,7 @@
 										android:layout_marginLeft="20dp"
 										android:layout_marginTop="89dp"
 										android:text="@string/teachers_string"
-										android:onClick="goToTeacherList"
+
 										android:textColor="@color/_bg__bars_status_bar_iphone_light_ek1_color"
 										android:textSize="18sp" />
 									<RelativeLayout
@@ -477,8 +480,10 @@
 										android:layout_width="154dp"
 										android:layout_height="133dp"
 										android:layout_marginStart="0dp"
+										android:onClick="goTOAssignment"
 										android:layout_marginTop="0dp"
-										android:src="@drawable/bg_3" />
+										android:src="@drawable/bg_3" >
+									</ImageView>
 
 									<TextView
 										android:id="@+id/assignment_2"
@@ -486,7 +491,7 @@
 										android:layout_height="28.8dp"
 										android:layout_marginLeft="20dp"
 										android:layout_marginTop="89dp"
-										android:onClick="goTOAssignment"
+
 										android:text="@string/assignment_2_string"
 										android:textColor="@color/_bg__bars_status_bar_iphone_light_ek1_color"
 										android:textSize="18sp" />
@@ -572,6 +577,7 @@
 										android:layout_height="133dp"
 										android:layout_marginStart="0dp"
 										android:layout_marginTop="0dp"
+										android:onClick="goToTimeTableStudent"
 										android:src="@drawable/bg_3" />
 
 

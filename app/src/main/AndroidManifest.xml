@@ -30,6 +30,9 @@
         <activity android:name=".studentLayouts.examView"/>
         <activity android:name=".studentLayouts.assignmentView"/>
         <activity android:name=".studentLayouts.profileView"/>
+        <activity android:name=".studentLayouts.passChange"/>
+        <activity android:name=".teacherLayouts.timeslot"/>
+        <activity android:name=".teacherLayouts.teacherDashboard"/>
 
 
 

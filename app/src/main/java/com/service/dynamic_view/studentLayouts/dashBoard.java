@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.service.dynamic_view.R;
+import com.service.dynamic_view.teacherLayouts.timeslot;
 
 public class dashBoard extends AppCompatActivity{
 
@@ -67,6 +68,26 @@ public class dashBoard extends AppCompatActivity{
         } catch (Exception e) {
             System.out.println("This is error" + e);
         }
+    }
+
+    public void goToTimeTableStudent(View view) {
+        try {
+            Intent intent = new Intent(this, timeslot.class);
+//            Toast.makeText(this, "Chala yeh toh", Toast.LENGTH_SHORT).show();
+            this.startActivity(intent);
+        } catch (Exception e) {
+            System.out.println("This is error" + e);
+        }
+    }
+
+    public void goToPassChange(View view) {
+        try {
+            Intent intent = new Intent(this, passChange.class);
+            this.startActivity(intent);
+        } catch (Exception e) {
+            System.out.println("This is error" + e);
+        }
+
     }
 }
 
