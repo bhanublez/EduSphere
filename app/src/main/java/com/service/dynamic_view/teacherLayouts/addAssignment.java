@@ -1,7 +1,6 @@
 package com.service.dynamic_view.teacherLayouts;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,7 +13,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.service.dynamic_view.R;
-import com.service.dynamic_view.studentLayouts.dashBoard;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,13 +43,9 @@ public class addAssignment extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(addAssignment.this, dashBoard.class);
-                startActivity(intent);
-            }
-        });
+        back.setOnClickListener(v -> {
+            finish();
+        }  );
 
     }
 

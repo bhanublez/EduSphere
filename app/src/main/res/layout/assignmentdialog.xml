@@ -22,21 +22,22 @@
 
             <TextView
                 android:id="@+id/last_submission_date_3_ek1"
-                android:layout_width="115dp"
+                android:layout_width="wrap_content"
                 android:layout_height="32dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="5dp"
                 android:text="Marks Alloted"
                 android:textColor="@color/assign_date_3_color"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/last_submission_date_3"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/last_submission_date_3"
-                app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3" />
+                app:layout_constraintStart_toStartOf="@+id/subjectName_a"
+                app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3_ek11" />
 
             <EditText
                 android:id="@+id/subjectName_a"
-                android:layout_width="320dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:hint="Subject Name"
                 android:textColor="@color/structure_of_atoms_color"
@@ -47,86 +48,91 @@
                 app:layout_constraintTop_toBottomOf="@+id/teacherNaam_aa" />
 
             <TextView
-                android:id="@+id/ass_date"
-                android:layout_width="115dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="8dp"
-                android:text="Assigned Date"
-                android:textColor="@color/assign_date_3_color"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/subjectName_a"
-                app:layout_constraintTop_toBottomOf="@+id/subjectName_a" />
-
-            <TextView
                 android:id="@+id/last_submission_date_3"
-                android:layout_width="115dp"
+                android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_marginTop="5dp"
                 android:text="Submission Date"
                 android:textColor="@color/assign_date_3_color"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/ass_date"
-                app:layout_constraintStart_toStartOf="@+id/ass_date"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/subjectName_a"
                 app:layout_constraintTop_toBottomOf="@+id/ass_date" />
 
             <TextView
                 android:id="@+id/last_submission_date_3_ek11"
-                android:layout_width="115dp"
+                android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_marginTop="5dp"
                 android:text="Set"
                 android:textColor="@color/assign_date_3_color"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/last_submission_date_3"
-                app:layout_constraintStart_toStartOf="@+id/last_submission_date_3"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/subjectName_a"
                 app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3" />
 
             <EditText
                 android:id="@+id/assDate_a"
-                android:layout_width="154dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_marginTop="5dp"
                 android:hint="yyyy-MM-dd"
                 android:textColor="@color/__10_oct_20_color"
-                android:textSize="8dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/subjectName_a"
+                app:layout_constraintHorizontal_bias="0.53"
+                app:layout_constraintStart_toEndOf="@+id/ass_date"
+                app:layout_constraintTop_toBottomOf="@+id/subjectName_a" />
+
+            <TextView
+                android:id="@+id/ass_date"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="5dp"
+                android:text="Assigned Date"
+                android:textColor="@color/assign_date_3_color"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/subjectName_a"
                 app:layout_constraintTop_toBottomOf="@+id/subjectName_a" />
 
             <EditText
                 android:id="@+id/set_id_a"
-                android:layout_width="154dp"
+                android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/__10_oct_20_color"
-                android:textSize="8dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/assDate_a"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/assDate_a"
+
                 app:layout_constraintTop_toBottomOf="@+id/subDate_a" />
 
             <EditText
                 android:id="@+id/marks_a"
-                android:layout_width="154dp"
+                android:layout_width="wrap_content"
                 android:layout_height="32dp"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="5dp"
                 android:textColor="@color/__10_oct_20_color"
-                android:textSize="8dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/assDate_a"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/assDate_a"
-                app:layout_constraintTop_toBottomOf="@+id/assDate_a" />
+                app:layout_constraintTop_toBottomOf="@+id/set_id_a" />
 
             <EditText
                 android:id="@+id/subDate_a"
-                android:layout_width="154dp"
+                android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_marginTop="5dp"
                 android:hint="yyyy-MM-dd"
                 android:textColor="@color/__10_oct_20_color"
-                android:textSize="8dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/assDate_a"
                 app:layout_constraintStart_toStartOf="@+id/assDate_a"
@@ -134,16 +140,17 @@
 
             <EditText
                 android:id="@+id/teacherNaam_aa"
-                android:layout_width="319dp"
+                android:layout_width="match_parent"
                 android:layout_height="42dp"
+                android:layout_marginLeft="10dp"
                 android:hint="Teacher Name"
                 android:textColor="@color/science_color"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="10dp"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="10dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>

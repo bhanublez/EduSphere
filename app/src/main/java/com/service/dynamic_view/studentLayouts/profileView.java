@@ -1,6 +1,5 @@
 package com.service.dynamic_view.studentLayouts;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,13 +19,9 @@ public class profileView extends AppCompatActivity {
         back=findViewById(R.id.backFromProfile);
 
         addValues();
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(profileView.this, dashBoard.class);
-                startActivity(intent);
-            }
-        });
+        back.setOnClickListener(v -> {
+            finish();
+        }  );
     }
 
     private void addValues() {
@@ -44,7 +39,7 @@ public class profileView extends AppCompatActivity {
         bloodGroup="O+";
         Religion="Hindu";
         section="A";
-//        addPersonal(adhar,studentId,Degree,Dob,Category,motherName,fatherName,gender,bloodGroup,Religion,section);
+        addPersonal(adhar,studentId,Degree,Dob,Category,motherName,fatherName,gender,bloodGroup,Religion,section);
 
         //add Contact
         String email,phone,fathernumber,fatherEmail,Peraddress,tempAdd,district,state,country,pincode;
@@ -60,6 +55,7 @@ public class profileView extends AppCompatActivity {
         pincode="110001";
 //        addContact(email,phone,fathernumber,fatherEmail,Peraddress,tempAdd,district,state,country,pincode);
 
+
         //add Data
         String name,enrllmentNumber;
         name="Ravi";
@@ -72,26 +68,26 @@ public class profileView extends AppCompatActivity {
         final View view2 =getLayoutInflater().inflate(R.layout.profile,null);
         TextView adharView = view2.findViewById(R.id.text);
         TextView studentIdView = view2.findViewById(R.id.text_3);
-        TextView DegreeView = view2.findViewById(R.id.text_5);
-        TextView DobView = view2.findViewById(R.id.text_6);
-        TextView CategoryView = view2.findViewById(R.id.text_10_ek3);
+//        TextView DegreeView = view2.findViewById(R.id.text_5);
+//        TextView DobView = view2.findViewById(R.id.text_6);
+//        TextView CategoryView = view2.findViewById(R.id.text_10_ek3);
         TextView motherNameView = view2.findViewById(R.id.text_9);
-        TextView fatherNameView = view2.findViewById(R.id.text_8);
-        TextView genderView = view2.findViewById(R.id.text_10);
-        TextView bloodGroupView = view2.findViewById(R.id.text_10_ek1);
-        TextView ReligionView = view2.findViewById(R.id.text_10_ek2);
-        TextView sectionView = view2.findViewById(R.id.text_4);
+//        TextView fatherNameView = view2.findViewById(R.id.text_8);
+//        TextView genderView = view2.findViewById(R.id.text_10);
+//        TextView bloodGroupView = view2.findViewById(R.id.text_10_ek1);
+//        TextView ReligionView = view2.findViewById(R.id.text_10_ek2);
+//        TextView sectionView = view2.findViewById(R.id.text_4);
         adharView.setText(adhar);
-        studentIdView.setText(studentId);
-        DegreeView.setText(Degree);
-        DobView.setText(Dob);
-        CategoryView.setText(Category);
+//        studentIdView.setText(studentId);
+//        DegreeView.setText(Degree);
+//        DobView.setText(Dob);
+//        CategoryView.setText(Category);
         motherNameView.setText(motherName);
-        fatherNameView.setText(fatherName);
-        genderView.setText(gender);
-        bloodGroupView.setText(bloodGroup);
-        ReligionView.setText(Religion);
-        sectionView.setText(section);
+//        fatherNameView.setText(fatherName);
+//        genderView.setText(gender);
+//        bloodGroupView.setText(bloodGroup);
+//        ReligionView.setText(Religion);
+//        sectionView.setText(section);
 
     }
 private void addContact(String email,String phone,String fathernumber,String fatherEmail,String Peraddress,String tempAdd,String district,String state,String country,String pincode){
@@ -118,12 +114,16 @@ private void addContact(String email,String phone,String fathernumber,String fat
     }
 
     private void addData(String name,String enrllmentNumber){
+        //Add value to the profile
         final View view2 =getLayoutInflater().inflate(R.layout.profile,null);
-         TextView nameView = view2.findViewById(R.id.studentName);
+        TextView nameView = view2.findViewById(R.id.studentName);
         TextView enrllmentNumberView = view2.findViewById(R.id.enrollmentNumber);
+        String onld = nameView.getText().toString();
         nameView.setText(name);
-        Toast.makeText(this, "Name "+name+" ", Toast.LENGTH_SHORT).show();
         enrllmentNumberView.setText(enrllmentNumber);
+
+        Toast.makeText(this, "Data Added"+onld+" "+enrllmentNumber, Toast.LENGTH_SHORT).show();
+
     }
 
 }

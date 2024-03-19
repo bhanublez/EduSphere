@@ -16,9 +16,7 @@
 
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -83,8 +81,8 @@
 
                                 <TextView
                                     android:id="@+id/name_studentT"
-                                    android:layout_width="261.01dp"
-                                    android:layout_height="60.71dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:text="@string/hi_akshay_string"
                                     android:textColor="@color/_bg___03_dashboard_ek2_color"
                                     android:textSize="30sp"
@@ -92,23 +90,23 @@
 
                                 <TextView
                                     android:id="@+id/enrollmentNumberT"
-                                    android:layout_width="240.61dp"
-                                    android:layout_height="29.94dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginTop="76dp"
                                     android:alpha="0.61"
-                                    android:text="@string/class_xi_b_roll_no__04_string"
+                                    android:text="Teacher Id"
                                     android:textColor="@color/_bg___03_dashboard_ek2_color"
                                     android:textSize="15sp" />
 
                                 <TextView
                                     android:id="@+id/class_xi_b_roll_no__04_ek1T"
-                                    android:layout_width="243.11dp"
-                                    android:layout_height="31.44dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_marginLeft="0dp"
                                     android:layout_marginTop="41dp"
                                     android:alpha="0.61"
-                                    android:text="@string/class_xi_b_roll_no__04_ek1_string"
+                                    android:text="Teacher name"
                                     android:textColor="@color/_bg___03_dashboard_ek2_color"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
@@ -128,7 +126,7 @@
                                     android:layout_height="28.9dp"
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginTop="115dp"
-                                    android:text="@string/__2020_2021_string"
+                                    android:text="Experience"
                                     android:textColor="@color/__2020_2021_color"
                                     android:textSize="14sp" />
 
@@ -1899,44 +1897,27 @@
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
-                            <ImageView
-                                android:id="@+id/profile_bg_2T"
-                                android:layout_width="84.19dp"
-                                android:layout_height="92.61dp"
-                                android:layout_marginStart="5dp"
-                                android:contentDescription="profile_bg_2"
-                                android:src="@drawable/profile_bg_2"
-                                app:layout_constraintBottom_toBottomOf="@+id/heading_content_ek2T"
-                                app:layout_constraintStart_toEndOf="@+id/heading_content_ek2T"
-                                app:layout_constraintTop_toTopOf="@+id/heading_content_ek2T" />
-
                             <RelativeLayout
                                 android:id="@+id/dpT"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
                                 app:layout_constraintBottom_toBottomOf="@+id/heading_content_ek2T"
                                 app:layout_constraintEnd_toEndOf="@+id/time_table_2T"
-                                app:layout_constraintStart_toStartOf="@+id/profile_bg_2T"
                                 app:layout_constraintTop_toTopOf="@+id/heading_content_ek2T">
 
                                 <View
                                     android:id="@+id/_bg__dp_ek1T"
                                     android:layout_width="90dp"
                                     android:layout_height="99dp"
-                                    android:background="@drawable/_bg__dp_ek1_shape"
-                                    tools:layout_editor_absoluteX="-10dp"
-                                    tools:layout_editor_absoluteY="-18dp" />
+                                    android:background="@drawable/_bg__dp_ek1_shape"/>
 
                                 <ImageView
                                     android:id="@+id/profile_bgT"
                                     android:layout_width="90dp"
                                     android:layout_height="99dp"
-                                    android:onClick="goToProfile"
                                     android:contentDescription="profile_bg"
-                                    android:src="@drawable/profile_bg"
-                                    tools:layout_editor_absoluteX="257dp"
-                                    tools:layout_editor_absoluteY="55dp" />
+                                    android:onClick="goToProfile"
+                                    android:src="@drawable/profile_bg" />
 
                             </RelativeLayout>
 
@@ -1946,7 +1927,6 @@
 
                 </ScrollView>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </HorizontalScrollView>
 
     </androidx.core.widget.NestedScrollView>
 

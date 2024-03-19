@@ -8,7 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.service.dynamic_view.R;
-import com.service.dynamic_view.teacherLayouts.timeslot;
+import com.service.dynamic_view.Universal.feedBack;
+import com.service.dynamic_view.Universal.holidayView;
 
 public class dashBoard extends AppCompatActivity{
 
@@ -72,7 +73,7 @@ public class dashBoard extends AppCompatActivity{
 
     public void goToTimeTableStudent(View view) {
         try {
-            Intent intent = new Intent(this, timeslot.class);
+            Intent intent = new Intent(this, studentTable.class);
 //            Toast.makeText(this, "Chala yeh toh", Toast.LENGTH_SHORT).show();
             this.startActivity(intent);
         } catch (Exception e) {
@@ -88,6 +89,44 @@ public class dashBoard extends AppCompatActivity{
             System.out.println("This is error" + e);
         }
 
+    }
+
+    public void goToAttendance(View view) {
+        try {
+            Intent intent = new Intent(this, attendanceMark.class);
+            this.startActivity(intent);
+        } catch (Exception e) {
+            System.out.println("This is error" + e);
+        }
+
+    }
+
+    public void goToAnnouncement(View view) {
+        try {
+            Intent intent = new Intent(this, notificationS.class);
+            this.startActivity(intent);
+        } catch (Exception e) {
+            System.out.println("This is error" + e);
+        }
+
+    }
+
+    public void goToFeedBack(View view) {
+        try {
+            Intent intent = new Intent(this, feedBack.class);
+            this.startActivity(intent);
+        } catch (Exception e) {
+            System.out.println("This is error" + e);
+        }
+
+    }
+    public void goToHoliday(View view){
+        try {
+            Intent intent = new Intent(this, holidayView.class);
+            this.startActivity(intent);
+        } catch (Exception e) {
+            System.out.println("This is error" + e);
+        }
     }
 }
 

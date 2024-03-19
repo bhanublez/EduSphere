@@ -1,8 +1,6 @@
 package com.service.dynamic_view.studentLayouts;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -24,12 +22,8 @@ public class passChange extends AppCompatActivity {
         confirmPass=findViewById(R.id.confirmPass);
 
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(passChange.this, dashBoard.class);
-                startActivity(intent);
-            }
-        });
+        back.setOnClickListener(v -> {
+            finish();
+        }  );
     }
 }

@@ -1,6 +1,5 @@
 package com.service.dynamic_view.studentLayouts;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,13 +24,9 @@ public class TeacherView extends AppCompatActivity {
         title_id.setText("Teacher List");
         
         addCards();
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TeacherView.this, dashBoard.class);
-                startActivity(intent);
-            }
-        });
+        back.setOnClickListener(v -> {
+            finish();
+        }  );
     }
 
     public void addCards() {

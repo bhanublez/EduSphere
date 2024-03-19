@@ -1,7 +1,6 @@
 package com.service.dynamic_view.studentLayouts;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,13 +25,9 @@ public class subjectView extends AppCompatActivity {
         title_id.setText("Register Subjects");
 
         addCards();
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(subjectView.this, dashBoard.class);
-                startActivity(intent);
-            }
-        });
+        back.setOnClickListener(v -> {
+            finish();
+        }  );
     }
 
     @SuppressLint("MissingInflatedId")

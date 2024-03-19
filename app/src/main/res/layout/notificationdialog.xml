@@ -9,11 +9,12 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/curve_bg_ek1"
         android:padding="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cardAssignment"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="47dp"
             tools:layout_editor_absoluteY="34dp">
@@ -21,44 +22,50 @@
 
             <TextView
                 android:id="@+id/ass_date"
-                android:layout_width="115dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="5dp"
+                android:layout_width="79dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="8dp"
                 android:text=" Date"
                 android:textColor="@color/assign_date_3_color"
                 android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/teacherName_e"
-                app:layout_constraintTop_toBottomOf="@+id/teacherName_e" />
+                app:layout_constraintStart_toStartOf="@+id/notificationID"
+                app:layout_constraintTop_toBottomOf="@+id/notificationID" />
 
             <TextView
                 android:id="@+id/last_submission_date_3"
-                android:layout_width="115dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="5dp"
+                android:layout_width="79dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="8dp"
                 android:text=" Time"
                 android:textColor="@color/assign_date_3_color"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/ass_date"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/ass_date"
                 app:layout_constraintTop_toBottomOf="@+id/ass_date" />
 
             <EditText
                 android:id="@+id/assDate_e"
-                android:layout_width="154dp"
+                android:layout_width="150dp"
                 android:layout_height="32dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="86dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
                 android:hint="yyyy-MM-dd"
                 android:textColor="@color/__10_oct_20_color"
                 android:textSize="10dp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/teacherName_e"
-                app:layout_constraintTop_toBottomOf="@+id/teacherName_e" />
+                app:layout_constraintEnd_toEndOf="@+id/notificationID"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toEndOf="@+id/ass_date"
+                app:layout_constraintStart_toStartOf="@+id/ass_date"
+                app:layout_constraintTop_toBottomOf="@+id/notificationID" />
 
             <EditText
-                android:id="@+id/exam_date_e"
-                android:layout_width="154dp"
+                android:id="@+id/timeIDM"
+                android:layout_width="150dp"
                 android:layout_height="32dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="8dp"
                 android:hint="HH:MM:SS"
                 android:textColor="@color/__10_oct_20_color"
                 android:textSize="10dp"
@@ -69,35 +76,42 @@
                 app:layout_constraintTop_toBottomOf="@+id/assDate_e" />
 
             <EditText
-                android:id="@+id/teacherName_e"
+                android:id="@+id/notificationID"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 android:hint="Notification Title"
                 android:textColor="@color/science_color"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="10dp" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/txtarea_e"
-                android:layout_width="319dp"
+                android:layout_width="match_parent"
                 android:layout_height="28dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
                 android:text="Topic"
                 android:textColor="@color/assign_date_3_color"
-                app:layout_constraintEnd_toEndOf="@+id/exam_date_e"
+                app:layout_constraintEnd_toEndOf="@+id/timeIDM"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/last_submission_date_3"
-                app:layout_constraintTop_toBottomOf="@+id/exam_date_e" />
+                app:layout_constraintTop_toBottomOf="@+id/timeIDM" />
 
             <EditText
                 android:id="@+id/txt_area_e"
                 android:layout_width="match_parent"
                 android:layout_height="88dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"

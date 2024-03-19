@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <ImageView
         android:id="@+id/blue_b_1"
         android:layout_width="match_parent"
@@ -19,77 +18,57 @@
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="62dp">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/backArrowOfAm"
+            android:id="@+id/back_icon"
             android:layout_width="18dp"
             android:layout_height="35dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="10dp"
-
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:contentDescription="backArrow"
             android:src="@drawable/arrowback" />
 
         <TextView
-            android:id="@+id/assignmentT"
-            android:layout_width="143dp"
+            android:id="@+id/title_id"
+            android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:layout_marginLeft="2dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="2dp"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/backArrowOfAm"
-            android:text="Assignment"
+            android:layout_toEndOf="@id/back_icon"
+            android:text="User Feedbacks"
             android:textColor="@color/black"
             android:textSize="24sp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="43dp"
             tools:layout_editor_absoluteY="61dp" />
-
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
         app:layout_constraintVertical_bias="1.0">
-
         <LinearLayout
-            android:id="@+id/addContainer"
+            android:id="@+id/mycontainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            />
+
     </ScrollView>
 
-    <ImageView
-        android:id="@+id/addBlock"
-        android:layout_width="76dp"
-        android:layout_height="72dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:onClick="addAssignment"
-        android:scaleType="fitXY"
-        android:src="@drawable/addentry"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

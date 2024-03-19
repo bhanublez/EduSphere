@@ -1,4 +1,4 @@
-package com.service.dynamic_view.teacherLayouts;
+package com.service.dynamic_view.studentLayouts;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -11,10 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.service.dynamic_view.R;
 
-public class timeslot extends AppCompatActivity {
+public class studentTable extends AppCompatActivity {
     LinearLayout layout;
     ImageView back;
     ImageView add;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class timeslot extends AppCompatActivity {
             finish();
         }  );
     }
+
     @SuppressLint("MissingInflatedId")
     public void addCards() {
         //Database of Exam sai hum haha data leke aaye
@@ -40,7 +42,7 @@ public class timeslot extends AppCompatActivity {
         teacherName = "Subject Naam";
         startTime = "2021-12-12";
         endTime = "2021-12-12";
-        subjectCode = "CS 900";
+        subjectCode = "CS 800";
         period = 2;
         addCard(subjectName, teacherName, startTime,endTime, subjectCode, period);
     }
@@ -54,6 +56,9 @@ public class timeslot extends AppCompatActivity {
         TextView subjectNameView = view2.findViewById(R.id.subject_naaam);
         TextView teacherNameView = view2.findViewById(R.id.teacher_nameS);
         TextView subjectCodeView = view2.findViewById(R.id.subject_code);
+        ImageView delete = view2.findViewById(R.id.del_e);
+        delete.setVisibility(View.GONE);
+        delete.setEnabled(false);
 //
 
         duration.setText(startTime + " - " + endTime);

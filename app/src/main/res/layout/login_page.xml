@@ -85,7 +85,7 @@
                 android:layout_marginTop="25dp">
 
                 <EditText
-                    android:id="@+id/bhanublez_gmail_com"
+                    android:id="@+id/user_idor_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/input_title_copy_2"
@@ -121,6 +121,7 @@
                 android:layout_marginEnd="0dp">
 
                 <EditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pp"

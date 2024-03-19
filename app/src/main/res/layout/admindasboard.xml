@@ -1,0 +1,54 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Add Student Button -->
+        <Button
+            android:id="@+id/btnAddStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Student"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Add Teacher Button -->
+        <Button
+            android:id="@+id/btnAddTeacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Teacher"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Modify Timetable Button -->
+        <Button
+            android:id="@+id/btnModifyTimetable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Modify Timetable"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Add Notification Button -->
+        <Button
+            android:id="@+id/btnAddNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Notification"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Read Feedback Button -->
+        <Button
+            android:id="@+id/btnReadFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Read Feedback"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Add other necessary buttons as needed -->
+
+    </LinearLayout>
+</ScrollView>

@@ -33,6 +33,15 @@
         <activity android:name=".studentLayouts.passChange"/>
         <activity android:name=".teacherLayouts.timeslot"/>
         <activity android:name=".teacherLayouts.teacherDashboard"/>
+        <activity android:name=".studentLayouts.notificationS"/>
+        <activity android:name=".teacherLayouts.notificationT"/>
+        <activity android:name=".login"/>
+        <activity android:name=".studentLayouts.attendanceMark"/>
+        <activity android:name=".studentLayouts.studentTable"/>
+        <activity android:name=".Universal.feedBack"/>
+        <activity android:name=".Universal.holidayView"/>
+
+
 
 
 

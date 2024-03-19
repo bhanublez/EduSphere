@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardAssignment"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
 
@@ -19,41 +19,22 @@
 
 
         <TextView
-            android:id="@+id/subjectName_ve"
-            android:layout_width="310dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="10dp"
-
-            android:hint="Subject Name Here"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/teacherName_ve" />
-
-        <TextView
             android:id="@+id/assign_date_3"
             android:layout_width="115dp"
             android:layout_height="32dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
             android:text="Assigned Date"
+            android:layout_marginTop="8dp"
             android:textColor="#222121"
             android:textSize="15dp"
-            app:layout_constraintStart_toStartOf="@+id/subjectName_ve"
-            app:layout_constraintTop_toBottomOf="@+id/subjectName_ve" />
+            app:layout_constraintStart_toStartOf="@+id/notification_ID"
+            app:layout_constraintTop_toBottomOf="@+id/notification_ID" />
 
         <TextView
             android:id="@+id/last_submission_date_3"
             android:layout_width="115dp"
             android:layout_height="32dp"
             android:layout_marginTop="5dp"
-            android:text="Exam Date"
+            android:text="Time"
             android:textColor="#222121"
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="@+id/assign_date_3"
@@ -61,44 +42,18 @@
             app:layout_constraintTop_toBottomOf="@+id/assign_date_3" />
 
         <TextView
-            android:id="@+id/last_submission_date_3_ek1"
-            android:layout_width="115dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="5dp"
-            android:text="Marks"
-            android:textColor="#222121"
-            android:textSize="15dp"
-            app:layout_constraintEnd_toEndOf="@+id/last_submission_date_3"
-            app:layout_constraintStart_toStartOf="@+id/last_submission_date_3"
-            app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3"
-            tools:ignore="DuplicateIds" />
-
-        <TextView
-            android:id="@+id/daetAss_ve"
+            android:id="@+id/date_assigned"
             android:layout_width="154dp"
             android:layout_height="32dp"
+            android:textColor="@color/black"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/subjectName_ve"
-            app:layout_constraintTop_toBottomOf="@+id/subjectName_ve" />
+            app:layout_constraintEnd_toEndOf="@+id/del_e"
+            app:layout_constraintTop_toBottomOf="@+id/notification_ID" />
 
         <TextView
-            android:id="@+id/markss_ve"
-            android:layout_width="154dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/daetAss_ve"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/daetAss_ve"
-            app:layout_constraintTop_toBottomOf="@+id/examDate_ve" />
-
-        <TextView
-            android:id="@+id/examDate_ve"
+            android:id="@+id/sheduleTimeID"
             android:layout_width="154dp"
             android:layout_height="32dp"
             android:layout_marginTop="5dp"
@@ -106,16 +61,16 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/daetAss_ve"
-            app:layout_constraintTop_toBottomOf="@+id/daetAss_ve" />
+            app:layout_constraintEnd_toEndOf="@+id/date_assigned"
+            app:layout_constraintTop_toBottomOf="@+id/date_assigned" />
 
         <TextView
-            android:id="@+id/teacherName_ve"
+            android:id="@+id/notification_ID"
             android:layout_width="272dp"
             android:layout_height="35dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
-            android:hint="Teacher Name Here"
+            android:hint="Notification Title"
             android:textColor="@color/science_color"
             android:textSize="18dp"
             android:textStyle="bold"
@@ -126,24 +81,25 @@
             android:id="@+id/del_e"
             android:layout_width="32dp"
             android:layout_height="34dp"
-            app:layout_constraintBottom_toBottomOf="@+id/teacherName_ve"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/notification_ID"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/teacherName_ve"
-            app:layout_constraintTop_toTopOf="@+id/teacherName_ve"
+            app:layout_constraintStart_toEndOf="@+id/notification_ID"
+            app:layout_constraintTop_toTopOf="@+id/notification_ID"
             app:srcCompat="@drawable/delete_icon" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="305dp"
             android:layout_height="32dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:text="Topic Description"
-            android:textSize="15dp"
 
             android:textColor="#222121"
-            app:layout_constraintEnd_toEndOf="@+id/markss_ve"
-            app:layout_constraintStart_toStartOf="@+id/last_submission_date_3_ek1"
-            app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3_ek1" />
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/sheduleTimeID"
+            app:layout_constraintStart_toStartOf="@+id/last_submission_date_3"
+            app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3" />
 
         <EditText
             android:id="@+id/txtArea_ve"

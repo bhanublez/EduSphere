@@ -1,7 +1,6 @@
 package com.service.dynamic_view.studentLayouts;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,13 +25,9 @@ public class assignmentView extends AppCompatActivity {
         title_id.setText("Assignments");
 
         addCards();
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(assignmentView.this, dashBoard.class);
-                startActivity(intent);
-            }
-        });
+        back.setOnClickListener(v -> {
+            finish();
+        }  );
     }
     @SuppressLint("MissingInflatedId")
     public void addCards() {

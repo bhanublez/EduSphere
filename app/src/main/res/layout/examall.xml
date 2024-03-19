@@ -20,18 +20,19 @@
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="62dp">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/backFromExam"
             android:layout_width="18dp"
             android:layout_height="35dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="10dp"
-
             android:layout_marginTop="10dp"
+
+            android:layout_marginEnd="10dp"
             android:contentDescription="backArrow"
             android:src="@drawable/arrowback" />
 
@@ -55,13 +56,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="@+id/blue_b_1"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/examContainer"
@@ -74,10 +75,10 @@
         android:id="@+id/addExam"
         android:layout_width="76dp"
         android:layout_height="72dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="70dp"
-        android:scaleType="fitXY"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         android:onClick="addAssignment"
+        android:scaleType="fitXY"
         android:src="@drawable/addentry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

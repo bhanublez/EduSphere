@@ -9,41 +9,41 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardAssignment"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/curve_bg_ek1"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="46dp">
+        android:padding="8dp"
+        >
 
 
         <TextView
             android:id="@+id/last_submission_date_3_ek1"
             android:layout_width="115dp"
             android:layout_height="32dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="8dp"
             android:text="Marks Alloted"
             android:textColor="@color/assign_date_3_color"
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="@+id/last_submission_date_3"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/last_submission_date_3"
-            app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3"
+            app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3_ek1T"
             tools:ignore="DuplicateIds" />
 
         <TextView
             android:id="@+id/nameSub_va"
-            android:layout_width="310dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
 
             android:hint="Subject Name Here"
             android:textColor="@color/structure_of_atoms_color"
             android:textSize="18dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/teacherNaam_va"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/teacherNaam_va" />
 
@@ -64,23 +64,25 @@
             android:id="@+id/last_submission_date_3"
             android:layout_width="115dp"
             android:layout_height="32dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="8dp"
             android:text="Submission Date"
             android:textColor="@color/assign_date_3_color"
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="@+id/assign_date_3"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/assign_date_3"
             app:layout_constraintTop_toBottomOf="@+id/assign_date_3" />
 
         <TextView
-            android:id="@+id/last_submission_date_3_ek1"
+            android:id="@+id/last_submission_date_3_ek1T"
             android:layout_width="115dp"
             android:layout_height="32dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="8dp"
             android:text="Set"
             android:textColor="@color/assign_date_3_color"
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="@+id/last_submission_date_3"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/last_submission_date_3"
             app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3"
             tools:ignore="DuplicateIds" />
@@ -89,55 +91,65 @@
             android:id="@+id/assDate_va"
             android:layout_width="154dp"
             android:layout_height="32dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
             android:textColor="@color/__10_oct_20_color"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/nameSub_va"
-            app:layout_constraintTop_toBottomOf="@+id/nameSub_va" />
+            app:layout_constraintBottom_toBottomOf="@+id/assign_date_3"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/assign_date_3"
+            app:layout_constraintTop_toTopOf="@+id/assign_date_3"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/setId_va"
             android:layout_width="154dp"
             android:layout_height="32dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
             android:textColor="@color/__10_oct_20_color"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/assDate_va"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/assDate_va"
-            app:layout_constraintTop_toBottomOf="@+id/subDate_va" />
+            app:layout_constraintBottom_toBottomOf="@+id/last_submission_date_3_ek1"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/last_submission_date_3_ek1"
+            app:layout_constraintTop_toTopOf="@+id/last_submission_date_3_ek1"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/marks_va"
             android:layout_width="154dp"
             android:layout_height="32dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/__10_oct_20_color"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/assDate_va"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/assDate_va"
-            app:layout_constraintTop_toBottomOf="@+id/assDate_va" />
+            app:layout_constraintBottom_toBottomOf="@+id/last_submission_date_3_ek1T"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/last_submission_date_3_ek1"
+            app:layout_constraintTop_toTopOf="@+id/last_submission_date_3_ek1T"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/subDate_va"
             android:layout_width="154dp"
             android:layout_height="32dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/assDate_va"
-            app:layout_constraintTop_toBottomOf="@+id/assDate_va" />
+            app:layout_constraintBottom_toBottomOf="@+id/last_submission_date_3"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/last_submission_date_3"
+            app:layout_constraintTop_toTopOf="@+id/last_submission_date_3"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/teacherNaam_va"
-            android:layout_width="272dp"
+            android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="40dp"
             android:hint="Teacher Name Here"
             android:textColor="@color/science_color"
             android:textSize="18dp"
@@ -154,6 +166,20 @@
             app:layout_constraintStart_toEndOf="@+id/teacherNaam_va"
             app:layout_constraintTop_toTopOf="@+id/teacherNaam_va"
             app:srcCompat="@drawable/delete_icon" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9232614" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

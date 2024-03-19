@@ -12,9 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="125dp">
+        tools:ignore="MissingConstraints">
 
 
         <TextView
@@ -72,6 +70,7 @@
             android:layout_height="22.4dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="110dp"
+
             android:hint="Subject code"
             android:textColor="@color/__08_15am___9_00am_color"
             android:textSize="14sp" />
