@@ -1,6 +1,7 @@
 package com.service.dynamic_view.studentLayouts;
 
 import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,6 +20,8 @@ public class assignmentView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewcontainer);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         title_id=findViewById(R.id.title_id);
         layout= findViewById(R.id.viewContainer);
         back=findViewById(R.id.back_icon);

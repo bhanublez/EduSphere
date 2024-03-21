@@ -73,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="24dp"
+            android:gravity="center_horizontal"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="55dp">
 
@@ -152,9 +153,8 @@
                 android:layout_below="@id/pass_field"
                 android:layout_alignStart="@+id/pass_field"
                 android:layout_alignEnd="@+id/pass_field"
-                android:layout_marginStart="11dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="44dp">
+                android:gravity="center_horizontal"
+                android:layout_marginTop="40dp">
 
 
                 <ImageView
@@ -168,13 +168,13 @@
 
                 <TextView
                     android:id="@+id/sign_in"
-                    android:layout_width="74.6dp"
-                    android:layout_height="27.6dp"
-                    android:layout_marginLeft="132dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
                     android:text="@string/sign_in_string"
+                    android:textAlignment="center"
                     android:textColor="@color/_bg___02_login_ek2_color"
-                    android:textSize="18dp"
+                    android:textSize="30dp"
                     android:textStyle="bold" />
 
             </RelativeLayout>

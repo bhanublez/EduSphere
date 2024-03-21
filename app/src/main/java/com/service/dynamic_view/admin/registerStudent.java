@@ -1,5 +1,6 @@
 package com.service.dynamic_view.admin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -54,24 +55,28 @@ public class registerStudent extends AppCompatActivity {
         // Check if email is empty
         if (TextUtils.isEmpty(email)) {
             editTextEmail.setError("Email is required.");
+            Toast.makeText(this, "Email is required.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Check if password is empty
         if (TextUtils.isEmpty(password)) {
             editTextPassword.setError("Password is required.");
+            Toast.makeText(this, "Password is required.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Check if confirm password is empty
         if (TextUtils.isEmpty(confirmPassword)) {
             editTextConfirmPassword.setError("Confirm Password is required.");
+            Toast.makeText(this, "Confirm Password is required.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Check if passwords match
         if (!password.equals(confirmPassword)) {
             editTextConfirmPassword.setError("Passwords do not match.");
+            Toast.makeText(this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -85,6 +90,9 @@ public class registerStudent extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(registerStudent.this, "Registration successful.", Toast.LENGTH_SHORT).show();
+                            //Move to admin dashboard
+                            Intent intent = new Intent(registerStudent.this, adminDashboard.class);
+                            startActivity(intent);
                             // Proceed to next activity or perform desired action
                         } else {
                             // If sign in fails, display a message to the user.

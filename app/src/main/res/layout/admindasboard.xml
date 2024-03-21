@@ -1,54 +1,233 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
+    android:layout_height="match_parent"
+    >
+    <ImageView
+        android:id="@+id/blue_b_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/blue_b_1"
+        android:scaleType="fitXY"
+        android:src="@drawable/blue_b_1_ek1" />
+
+    <!-- Admin Title -->
+    <TextView
+        android:id="@+id/titleAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@drawable/bg"
+        android:text="Admin"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:background="@drawable/curve_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/titleAdmin"
+        app:layout_constraintTop_toBottomOf="@+id/titleAdmin"
+        tools:ignore="MissingConstraints">
 
-        <!-- Add Student Button -->
-        <Button
-            android:id="@+id/btnAddStudent"
+
+        <!-- Grid Layout for Buttons -->
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Student"
-            android:layout_marginTop="20dp"/>
+            android:alignmentMode="alignMargins"
+            android:padding="10sp"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="6">
 
-        <!-- Add Teacher Button -->
-        <Button
-            android:id="@+id/btnAddTeacher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Teacher"
-            android:layout_marginTop="20dp"/>
+            <!-- Add Student Button -->
 
-        <!-- Modify Timetable Button -->
-        <Button
-            android:id="@+id/btnModifyTimetable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Modify Timetable"
-            android:layout_marginTop="20dp"/>
+            <!-- Add Teacher Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddStudent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
 
-        <!-- Add Notification Button -->
-        <Button
-            android:id="@+id/btnAddNotification"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Notification"
-            android:layout_marginTop="20dp"/>
+                android:backgroundTint="@color/adminBlue"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:onClick="goToAddStudent"
+                android:text="Add Student" />
 
-        <!-- Read Feedback Button -->
-        <Button
-            android:id="@+id/btnReadFeedback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Read Feedback"
-            android:layout_marginTop="20dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddTeacher"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/adminBlue"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Add Teacher" />
 
-        <!-- Add other necessary buttons as needed -->
+            <!-- Modify Timetable Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnModifyTimetable"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/adminBlue"
+                android:text="Modify Timetable" />
+
+            <!-- Add Notification Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddNotification"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
+                android:backgroundTint="@color/adminBlue"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Add Notification" />
+
+            <!-- Read Feedback Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReadFeedback"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:textColor="@color/black"
+
+                android:backgroundTint="@color/adminBlue"
+                android:layout_margin="8dp"
+                android:text="Read Feedback" />
+
+            <!-- Modify Assignment Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnModifyAssignment"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
+                android:backgroundTint="@color/adminBlue"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Modify Assignment" />
+
+            <!-- Modify Exams Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnModifyExams"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:textColor="@color/black"
+
+                android:backgroundTint="@color/adminBlue"
+                android:layout_margin="8dp"
+                android:text="Modify Exams" />
+
+            <!-- Holidays Management Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHolidaysManagement"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/black"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+
+                android:backgroundTint="@color/adminBlue"
+                android:text="Holidays Management" />
+
+            <!-- Student Password Manager Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStudentPasswordManager"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
+                android:backgroundTint="@color/adminBlue"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Student Password Manager" />
+
+            <!-- Teacher Password Manager Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTeacherPasswordManager"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+
+                android:textColor="@color/black"
+                android:backgroundTint="@color/adminBlue"
+                android:layout_margin="8dp"
+                android:text="Teacher Password Manager" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnModifyAttendance"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+
+                android:textColor="@color/black"
+                android:backgroundTint="@color/adminBlue"
+                android:layout_margin="8dp"
+                android:text="Modify Attendance" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnModifyResult"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+
+                android:textColor="@color/black"
+                android:backgroundTint="@color/adminBlue"
+                android:layout_margin="8dp"
+                android:text="Modify Result" />
+
+
+
+            <!-- Additional Features Buttons -->
+            <!-- Add more buttons here with appropriate ids and labels -->
+
+        </GridLayout>
 
     </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

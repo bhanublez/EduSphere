@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_gravity="center"
     android:layout_height="match_parent">
+
 
     <ImageView
         android:id="@+id/blue_b_1"
@@ -18,8 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-
-
     <View
         android:id="@+id/ellipse_"
         android:layout_width="196dp"
@@ -27,11 +27,10 @@
         android:background="@drawable/ellipse_2_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.702"
+        app:layout_constraintHorizontal_bias="0.753"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283" />
-
+        app:layout_constraintVertical_bias="0.44" />
 
     <RelativeLayout
         android:id="@+id/button"
@@ -44,33 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ellipse_">
-
-        <ImageView
-            android:id="@+id/bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:contentDescription="bg"
-            android:src="@drawable/bg" />
-
-        <TextView
-            android:id="@+id/get_started"
-            android:layout_width="320dp"
-            android:layout_height="66dp"
-            android:layout_below="@id/bg"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="-65dp"
-            android:autoSizeTextType="uniform"
-            android:onClick="goToDash"
-            android:text="Start"
-            android:textAlignment="center"
-            android:textColor="@color/_bg___01_splash_ek2_color"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+        app:layout_constraintTop_toBottomOf="@+id/ellipse_"/>
 
 
     <TextView
@@ -84,16 +57,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/blue_b_1"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.465" />
 
     <RelativeLayout
         android:id="@+id/group_8027"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/ellipse_"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.184"
@@ -155,16 +129,5 @@
             android:src="@drawable/path_44103" />
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Button"
-        android:onClick="goTeacherDashBoard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

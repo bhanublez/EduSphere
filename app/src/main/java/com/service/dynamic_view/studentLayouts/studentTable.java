@@ -1,6 +1,7 @@
 package com.service.dynamic_view.studentLayouts;
 
 import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,8 @@ public class studentTable extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.timeslot);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         layout= findViewById(R.id.tableContainer);
         back=findViewById(R.id.back_icon);
         add = findViewById(R.id.add_Slot);

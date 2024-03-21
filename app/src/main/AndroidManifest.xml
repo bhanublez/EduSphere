@@ -17,10 +17,26 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".admin.adminDashboard"
+            android:label="Admin Dashboard"
+            android:roundIcon="@drawable/admin_icon"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+
+
+
+
+
         <activity android:name=".studentLayouts.dashBoard" />
         <activity android:name=".teacherLayouts.addAssignment" />
         <activity android:name=".teacherLayouts.addExam"/>
@@ -40,11 +56,14 @@
         <activity android:name=".studentLayouts.studentTable"/>
         <activity android:name=".Universal.feedBack"/>
         <activity android:name=".Universal.holidayView"/>
+        <activity android:name=".admin.registerStudent"/>
+        <activity android:name=".admin.addStudent"/>
 
 
 
 
 
     </application>
+
 
 </manifest>

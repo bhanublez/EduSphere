@@ -76,13 +76,14 @@
 								android:id="@+id/heading_content_ek2"
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
+								android:padding="5dp"
 								android:layout_marginStart="16dp"
 								android:layout_marginTop="24dp"
 								app:layout_constraintStart_toStartOf="@+id/time_table_2"
 								app:layout_constraintTop_toTopOf="parent">
 
 								<TextView
-									android:id="@+id/name_student"
+									android:id="@+id/wiseID"
 									android:layout_width="wrap_content"
 									android:layout_height="wrap_content"
 									android:text="@string/hi_akshay_string"
@@ -102,7 +103,7 @@
 									android:textSize="15sp" />
 
 								<TextView
-									android:id="@+id/class_xi_b_roll_no__04_ek1"
+									android:id="@+id/studentnaam"
 									android:layout_width="wrap_content"
 									android:layout_height="wrap_content"
 									android:layout_marginLeft="0dp"
@@ -123,7 +124,7 @@
 									android:src="@drawable/rectangle_2388" />
 
 								<TextView
-									android:id="@+id/__2020_2021"
+									android:id="@+id/academicYears"
 									android:layout_width="96.53dp"
 									android:layout_height="28.9dp"
 									android:layout_marginLeft="15dp"
@@ -317,6 +318,7 @@
 										android:layout_width="154dp"
 										android:layout_height="133dp"
 										android:layout_marginStart="0dp"
+										android:onClick="logout"
 										android:layout_marginTop="0dp"
 										android:src="@drawable/bg_3" />
 

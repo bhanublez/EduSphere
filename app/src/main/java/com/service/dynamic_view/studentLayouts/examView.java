@@ -2,6 +2,7 @@ package com.service.dynamic_view.studentLayouts;
 
 
 import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,8 @@ public class examView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewcontainer);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         layout= findViewById(R.id.viewContainer);
         back=findViewById(R.id.back_icon);
         title_id=findViewById(R.id.title_id);
