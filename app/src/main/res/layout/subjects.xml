@@ -19,8 +19,7 @@
         <TextView
             android:id="@+id/subId2"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
 
             android:layout_marginTop="10dp"
 
@@ -35,8 +34,7 @@
         <TextView
             android:id="@+id/subCode2"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:hint="Subject Code"
             android:textColor="@color/science_color"

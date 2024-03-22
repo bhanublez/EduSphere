@@ -92,11 +92,11 @@
 
         <TextView
             android:id="@+id/enrollmentNumber"
-            android:layout_width="144.8dp"
+            android:layout_width="wrap_content"
             android:layout_height="25.8dp"
             android:layout_marginLeft="99dp"
             android:layout_marginTop="50dp"
-            android:text="@string/class_xi_b_roll_no__04_string"
+            android:hint="Enrollment number"
             android:textColor="@color/class_xi_b_roll_no__04_color"
             android:textSize="18sp" />
 
@@ -106,55 +106,13 @@
             android:layout_height="31dp"
             android:layout_marginLeft="99dp"
             android:layout_marginTop="16dp"
-            android:text="@string/akshay_syal_string"
+            android:hint="Name of Student come here"
             android:textColor="@color/_bg__background_ek1_color"
             android:textSize="20sp"
             android:textStyle="bold" />
 
 
-        <RelativeLayout
-            android:id="@+id/ic_camera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="302dp"
-            android:layout_marginTop="18dp">
 
-            <View
-                android:id="@+id/_bg__ic_camera_ek1"
-                android:layout_width="20.77dp"
-                android:layout_height="18.18dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/_bg__ic_camera_ek1_shape" />
-
-
-            <RelativeLayout
-                android:id="@+id/ic_camera_ek2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp">
-
-                <View
-                    android:id="@+id/_bg__ic_camera_ek3"
-                    android:layout_width="20.77dp"
-                    android:layout_height="18.18dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:background="@drawable/_bg__ic_camera_ek3_shape" />
-
-                <ImageView
-                    android:id="@+id/ic_camera_2"
-                    android:layout_width="20.77dp"
-                    android:layout_height="18.18dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:contentDescription="ic_camera_2"
-                    android:src="@drawable/ic_camera_2" />
-
-            </RelativeLayout>
-
-        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -208,15 +166,15 @@
                   android:layout_width="161dp"
                   android:layout_height="62dp" />
 
-              <TextView android:id="@+id/text_2"
+              <TextView android:id="@+id/acacdemicYear"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:layout_width="77.6dp"
-                  android:layout_height="27.6dp"
-                  android:text="@string/text_2_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="Academic Year "
                   />
 
               <ImageView android:id="@+id/border_2"
@@ -253,16 +211,16 @@
                   android:layout_width="161dp"
                   android:layout_height="62dp" />
 
-              <TextView android:id="@+id/text"
-                  android:textStyle="bold"
-                  android:textSize="16sp"
-                  android:textColor="@color/text_color"
+              <TextView
+                  android:id="@+id/sadharID"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:layout_width="137.6dp"
-                  android:layout_height="27.6dp"
-                  android:text="@string/text_string"
-                  />
+                  android:hint="aadhar number"
+                  android:textColor="@color/text_color"
+                  android:textSize="16sp"
+                  android:textStyle="bold" />
 
 
               <ImageView android:id="@+id/border"
@@ -300,15 +258,15 @@
                   android:layout_width="160.5dp"
                   android:layout_height="62dp" />
 
-              <TextView android:id="@+id/text_5"
+              <TextView android:id="@+id/degreeId"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:layout_width="36.6dp"
-                  android:layout_height="27.6dp"
-                  android:text="@string/text_5_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="Degree Name"
                   />
 
               <ImageView android:id="@+id/border_5"
@@ -346,7 +304,7 @@
                   android:layout_width="160.5dp"
                   android:layout_height="62dp" />
 
-              <TextView android:id="@+id/text_3"
+              <TextView android:id="@+id/studentIdP"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
@@ -354,7 +312,7 @@
                   android:layout_marginTop="23dp"
                   android:layout_width="81.6dp"
                   android:layout_height="27.6dp"
-                  android:text="@string/text_3_string"
+                  android:hint="Student Id"
                   />
 
               <ImageView android:id="@+id/border_3"
@@ -393,15 +351,15 @@
                   android:layout_width="160.5dp"
                   android:layout_height="62dp" />
 
-              <TextView android:id="@+id/text_6"
+              <TextView android:id="@+id/dobId"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:layout_width="111.6dp"
-                  android:layout_height="27.6dp"
-                  android:text="@string/text_6_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="DOB"
                   />
 
               <ImageView android:id="@+id/border_6"
@@ -439,15 +397,15 @@
                   android:layout_width="160.5dp"
                   android:layout_height="62dp" />
 
-              <TextView android:id="@+id/text_4"
+              <TextView android:id="@+id/sectionId"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:layout_width="25.6dp"
-                  android:layout_height="27.6dp"
-                  android:text="@string/text_4_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="Section name"
                   />
 
               <ImageView android:id="@+id/border_4"
@@ -485,15 +443,15 @@
                   android:layout_width="161dp"
                   android:layout_height="60dp" />
 
-              <TextView android:id="@+id/text_10_ek2"
+              <TextView android:id="@+id/religionId"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="22dp"
-                  android:layout_width="63.7dp"
-                  android:layout_height="26.86dp"
-                  android:text="@string/text_10_ek2_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="Religion Name"
                   />
 
               <ImageView android:id="@+id/border_10_ek2"
@@ -532,15 +490,15 @@
                   android:layout_width="161dp"
                   android:layout_height="60dp" />
 
-              <TextView android:id="@+id/text_10_ek3"
+              <TextView android:id="@+id/categoryId"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="22dp"
-                  android:layout_width="63.7dp"
-                  android:layout_height="26.86dp"
-                  android:text="@string/text_10_ek3_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="category of Yours"
                   />
 
               <ImageView android:id="@+id/border_10_ek3"
@@ -578,15 +536,15 @@
                   android:layout_width="341dp"
                   android:layout_height="62dp" />
 
-              <TextView android:id="@+id/text_9"
+              <TextView android:id="@+id/motherId"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:layout_width="72.6dp"
-                  android:layout_height="27.6dp"
-                  android:text="@string/text_9_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="Mother Name"
                   />
 
               <ImageView android:id="@+id/border_9"
@@ -624,15 +582,15 @@
                   android:layout_width="341dp"
                   android:layout_height="62dp" />
 
-              <TextView android:id="@+id/text_8"
+              <TextView android:id="@+id/fatherId"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:layout_width="72.6dp"
-                  android:layout_height="27.6dp"
-                  android:text="@string/text_8_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="Father Name"
                   />
 
               <ImageView android:id="@+id/border_8"
@@ -670,15 +628,15 @@
                   android:layout_width="161dp"
                   android:layout_height="60dp" />
 
-              <TextView android:id="@+id/text_10"
+              <TextView android:id="@+id/genderId"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="22dp"
-                  android:layout_width="63.7dp"
-                  android:layout_height="26.86dp"
-                  android:text="@string/text_10_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="Gender Name"
                   />
 
               <ImageView android:id="@+id/border_10"
@@ -716,15 +674,15 @@
                   android:layout_width="161dp"
                   android:layout_height="60dp" />
 
-              <TextView android:id="@+id/text_10_ek1"
+              <TextView android:id="@+id/bloodId"
                   android:textStyle="bold"
                   android:textSize="16sp"
                   android:textColor="@color/text_color"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="22dp"
-                  android:layout_width="63.7dp"
-                  android:layout_height="26.86dp"
-                  android:text="@string/text_10_ek1_string"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="Blood group name"
                   />
 
               <ImageView android:id="@+id/border_10_ek1"
@@ -777,20 +735,13 @@
               tools:layout_editor_absoluteX="86dp"
               tools:layout_editor_absoluteY="300dp">
 
-              <View
-                  android:layout_width="161dp"
-                  android:layout_height="62dp"
-                  android:layout_marginStart="-15dp"
-                  android:layout_marginTop="-306dp"
-                  android:background="@drawable/_bg__adhar_no_ek1_shape" />
-
               <TextView
                   android:id="@+id/number_contact"
-                  android:layout_width="137.6dp"
-                  android:layout_height="27.6dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:text="@string/text_string"
+                  android:hint="Contact Number"
                   android:textColor="@color/text_color"
                   android:textSize="16sp"
                   android:textStyle="bold" />
@@ -828,20 +779,13 @@
               android:layout_below="@id/rectangle_2"
               tools:layout_editor_absoluteY="209dp">
 
-              <View
-                  android:layout_width="161dp"
-                  android:layout_height="62dp"
-                  android:layout_marginStart="-15dp"
-                  android:layout_marginTop="-306dp"
-                  android:background="@drawable/_bg__adhar_no_ek1_shape" />
-
               <TextView
                   android:id="@+id/email_c"
-                  android:layout_width="137.6dp"
-                  android:layout_height="27.6dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:text="@string/text_string"
+                  android:hint="Email address Here"
                   android:textColor="@color/text_color"
                   android:textSize="16sp"
                   android:textStyle="bold" />
@@ -877,20 +821,13 @@
               android:layout_marginTop="10dp"
               tools:ignore="MissingConstraints">
 
-              <View
-                  android:layout_width="161dp"
-                  android:layout_height="62dp"
-                  android:layout_marginStart="-15dp"
-                  android:layout_marginTop="-306dp"
-                  android:background="@drawable/_bg__adhar_no_ek1_shape" />
-
               <TextView
                   android:id="@+id/father_c"
-                  android:layout_width="137.6dp"
-                  android:layout_height="27.6dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:text="@string/text_string"
+                  android:hint="Your Father Number"
                   android:textColor="@color/text_color"
                   android:textSize="16sp"
                   android:textStyle="bold" />
@@ -927,20 +864,13 @@
               tools:layout_editor_absoluteX="65dp"
               tools:layout_editor_absoluteY="435dp">
 
-              <View
-                  android:layout_width="161dp"
-                  android:layout_height="244dp"
-                  android:layout_marginStart="-15dp"
-                  android:layout_marginTop="-306dp"
-                  android:background="@drawable/_bg__adhar_no_ek1_shape" />
-
               <TextView
                   android:id="@+id/fatherEmail_c"
-                  android:layout_width="137.6dp"
-                  android:layout_height="27.6dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:text="@string/text_string"
+                  android:hint="Father Email here"
                   android:textColor="@color/text_color"
                   android:textSize="16sp"
                   android:textStyle="bold" />
@@ -963,13 +893,6 @@
                   android:textColor="@color/label_color"
                   android:textSize="12sp" />
 
-              <View
-                  android:layout_width="161dp"
-                  android:layout_height="62dp"
-                  android:layout_marginStart="-15dp"
-                  android:layout_marginTop="-306dp"
-                  android:background="@drawable/_bg__adhar_no_ek1_shape" />
-
           </RelativeLayout>
 
           <RelativeLayout
@@ -982,20 +905,13 @@
               tools:layout_editor_absoluteY="540dp"
               tools:ignore="MissingConstraints">
 
-              <View
-                  android:layout_width="341dp"
-                  android:layout_height="62dp"
-                  android:layout_marginStart="-15dp"
-                  android:layout_marginTop="-624dp"
-                  android:background="@drawable/_bg__mother_name_ek1_shape" />
-
               <TextView
                   android:id="@+id/permanentadd_c"
-                  android:layout_width="72.6dp"
-                  android:layout_height="27.6dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:text="@string/text_9_string"
+                  android:hint="Permanent Address"
                   android:textColor="@color/text_color"
                   android:textSize="16sp"
                   android:textStyle="bold" />
@@ -1030,20 +946,13 @@
               tools:layout_editor_absoluteX="24dp"
               tools:layout_editor_absoluteY="642dp">
 
-              <View
-                  android:layout_width="341dp"
-                  android:layout_height="62dp"
-                  android:layout_marginStart="-15dp"
-                  android:layout_marginTop="-624dp"
-                  android:background="@drawable/_bg__mother_name_ek1_shape" />
-
               <TextView
                   android:id="@+id/localadd_c"
-                  android:layout_width="72.6dp"
-                  android:layout_height="27.6dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:text="@string/text_9_string"
+                  android:hint="Your Local Address"
                   android:textColor="@color/text_color"
                   android:textSize="16sp"
                   android:textStyle="bold" />
@@ -1077,20 +986,13 @@
               tools:layout_editor_absoluteX="215dp"
               tools:layout_editor_absoluteY="25dp">
 
-              <View
-                  android:layout_width="161dp"
-                  android:layout_height="62dp"
-                  android:layout_marginStart="-15dp"
-                  android:layout_marginTop="-306dp"
-                  android:background="@drawable/_bg__adhar_no_ek1_shape" />
-
               <TextView
                   android:id="@+id/district_c"
-                  android:layout_width="137.6dp"
-                  android:layout_height="27.6dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:text="@string/text_string"
+                  android:hint="District Name here"
                   android:textColor="@color/text_color"
                   android:textSize="16sp"
                   android:textStyle="bold" />
@@ -1126,20 +1028,13 @@
               tools:layout_editor_absoluteX="247dp"
               tools:layout_editor_absoluteY="373dp">
 
-              <View
-                  android:layout_width="161dp"
-                  android:layout_height="62dp"
-                  android:layout_marginStart="-15dp"
-                  android:layout_marginTop="-306dp"
-                  android:background="@drawable/_bg__adhar_no_ek1_shape" />
-
               <TextView
                   android:id="@+id/pincode_c"
-                  android:layout_width="137.6dp"
-                  android:layout_height="27.6dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:text="@string/text_string"
+                  android:hint="Pincode Number"
                   android:textColor="@color/text_color"
                   android:textSize="16sp"
                   android:textStyle="bold" />
@@ -1177,11 +1072,11 @@
 
               <TextView
                   android:id="@+id/country_c"
-                  android:layout_width="137.6dp"
-                  android:layout_height="27.6dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="0dp"
                   android:layout_marginTop="23dp"
-                  android:text="@string/text_string"
+                  android:hint="Country name"
                   android:textColor="@color/text_color"
                   android:textSize="16sp"
                   android:textStyle="bold" />
@@ -1205,6 +1100,52 @@
                   android:textSize="12sp" />
 
           </RelativeLayout>
+
+
+          <RelativeLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              tools:ignore="MissingConstraints"
+              android:layout_below="@id/district"
+
+              android:layout_toRightOf="@id/father_num"
+              android:layout_marginTop="10dp"
+              tools:layout_editor_absoluteX="74dp"
+              tools:layout_editor_absoluteY="731dp">
+
+              <TextView
+
+                  android:id="@+id/state"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="0dp"
+                  android:layout_marginTop="23dp"
+                  android:hint="State Name come here"
+                  android:textColor="@color/text_color"
+                  android:textSize="16sp"
+                  android:textStyle="bold" />
+
+
+              <ImageView
+                  android:layout_width="161dp"
+                  android:layout_height="1dp"
+                  android:layout_marginStart="0dp"
+                  android:layout_marginTop="61dp"
+                  android:contentDescription="border"
+                  android:src="@drawable/border" />
+
+              <TextView
+                  android:layout_width="119dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="0dp"
+                  android:layout_marginTop="0dp"
+                  android:text="State"
+                  android:textColor="@color/label_color"
+                  android:textSize="12sp" />
+
+          </RelativeLayout>
+
+
 
       </RelativeLayout>
 

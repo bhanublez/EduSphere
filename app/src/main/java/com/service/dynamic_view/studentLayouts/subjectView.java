@@ -10,12 +10,18 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.service.dynamic_view.R;
 
 public class subjectView extends AppCompatActivity {
-    LinearLayout layout;
-    ImageView back;
-    TextView title_id ;
+   private LinearLayout layout;
+    private ImageView back;
+    private TextView title_id ;
+    String code, subject;
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,19 +33,32 @@ public class subjectView extends AppCompatActivity {
         title_id=findViewById(R.id.title_id);
         title_id.setText("Register Subjects");
 
-        addCards();
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
+
         back.setOnClickListener(v -> {
             finish();
         }  );
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        addCards();
+    }
+
     @SuppressLint("MissingInflatedId")
     public void addCards() {
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+           //First DatabaseReference
 
-        String code, subject;
-        //Sample inputs
-        code = "Teacher Name";
-        subject = "Subject Name";
+
+        }
+
+
+
         addCard(code, subject);
     }
 
@@ -52,8 +71,6 @@ public class subjectView extends AppCompatActivity {
 
         TextView code = view2.findViewById(R.id.subCode2);
         TextView subjectView = view2.findViewById(R.id.subId2);
-
-//         Set values to respective TextViews
         code.setText(ccode);
         subjectView.setText(subject);
 

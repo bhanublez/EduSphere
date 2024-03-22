@@ -1,0 +1,97 @@
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Subject"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Subject Name -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Subject Name"/>
+
+        <EditText
+            android:id="@+id/editTextSubjectName"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter Subject Name"/>
+
+        <!-- Subject Code -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:text="Subject Code"/>
+
+        <EditText
+            android:id="@+id/editTextSubjectCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+            android:hint="Enter Subject Code"/>
+
+        <!-- Branch Selection -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+            android:text="Department"
+            android:textSize="20dp" />
+
+        <Spinner
+            android:id="@+id/spinnerBranch"
+            android:layout_width="match_parent"
+            android:theme="@style/SpinnerItemTextStyle"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"/>
+
+        <!-- Semester Selection -->
+        <TextView
+            android:layout_width="match_parent"
+
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Semester"/>
+
+        <Spinner
+            android:id="@+id/spinnerSemester"
+            android:layout_width="match_parent"
+
+            android:layout_marginTop="10dp"
+            android:theme="@style/SpinnerItemTextStyle"
+            android:layout_height="wrap_content"/>
+
+        <!-- Add Subject Button -->
+        <Button
+            android:id="@+id/buttonAddSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Subject"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+</ScrollView>

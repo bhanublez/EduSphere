@@ -2,6 +2,7 @@ package com.service.dynamic_view.admin;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,22 +27,24 @@ import com.service.dynamic_view.R;
 public class addStudent extends AppCompatActivity {
 
     //Personal Details
-    private String name,degree,branch,Section,Religion,category,motherName,fatherName,Gender,BloodGroup,DOB,enrollmentNo,academicYear;
+    private String name,degree,branch,Section,Religion,category,motherName,fatherName,Gender,BloodGroup,DOB,enrollmentNo,academicYear,semester;
     String studentId,adharNo;
 
     private String password,confirmPassword;
 
 
     //Contact Details
-    private String email,contactNo,fatherEmail,permanentAddress,localAddress,district,state,pincode,Country;
+    private String email,contactNo,fatherEmail,permanentAddress,localAddress,district,state,pincode,Country,fatherNumber;
 
     //Firbase Data Base
     private DatabaseReference mDatabase;
+    private  FirebaseAuth mAuth;
     private EditText editTextName,editTextDegree,editTextBranch,editTextSection,editTextReligion,editTextCategory,
             editTextMotherName,editTextFatherName,editTextGender,editTextBloodGroup,editTextDOB,editTextEnrollmentNumber,
             editTextAcademicYear,editTextStudentId,editTextAdhar,editTextEmail,editTextMobileNumber,editTextFatherEmail,
             editTextAddress,editTextLocalAddress,editTextCity,editTextState,editTextPincode,editTextCountry,editTextPassword,
-            editTextConfirmPassword;
+            editTextConfirmPassword,editTextFatherNumber,editTextSemester;
+    private ProgressDialog progressDialog;
 
     private Button buttonRegister;
     @Override
@@ -51,6 +54,8 @@ public class addStudent extends AppCompatActivity {
 
         //Firebase Database
         mDatabase = FirebaseDatabase.getInstance().getReference();
+         mAuth = FirebaseAuth.getInstance();
+
 
 
         editTextName=findViewById(R.id.editTextName);
@@ -79,9 +84,13 @@ public class addStudent extends AppCompatActivity {
         editTextCountry=findViewById(R.id.editTextCountry);
         editTextPassword=findViewById(R.id.editTextPassword);
         editTextConfirmPassword=findViewById(R.id.editTextConfirmPassword);
+        editTextFatherNumber=findViewById(R.id.editTextFatherNumber);
+        editTextSemester=findViewById(R.id.editTextSemester);
 
 
         buttonRegister=findViewById(R.id.buttonRegister);
+        progressDialog=new ProgressDialog(this);
+
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,11 +120,14 @@ public class addStudent extends AppCompatActivity {
                 editTextName.setError("Name is required");
                 return;
             }
+
             degree = editTextDegree.getText().toString();
             if (degree.isEmpty()) {
                 editTextDegree.setError("Degree is required");
                 return;
             }
+
+
             branch = editTextBranch.getText().toString();
             if (branch.isEmpty()) {
                 editTextBranch.setError("Branch is required");
@@ -151,12 +163,36 @@ public class addStudent extends AppCompatActivity {
                 fatherName = "Not Specified";
             }
 
-            String gender = editTextGender.getText().toString().toLowerCase();
-            if (gender.isEmpty()) {
+            Gender = editTextGender.getText().toString().toLowerCase();
+            if (Gender.isEmpty()) {
                 editTextGender.setError("Gender is required either male, female, or other");
                 return;
-            } else if (!(gender.equals("female") || gender.equals("male") || gender.equals("other"))) {
+            } else if (!(Gender.equals("female") || Gender.equals("male") || Gender.equals("other"))) {
                 editTextGender.setError("Gender should be either male, female, or other");
+                return;
+            }
+
+            fatherNumber = editTextFatherNumber.getText().toString();
+            if(fatherNumber.isEmpty()){
+                fatherNumber = "Not Specified";
+            }else {
+                long fatherN;
+                try {
+                    fatherN = Long.parseLong(fatherNumber);
+                } catch (NumberFormatException e) {
+                    editTextFatherNumber.setError("Invalid Father Number");
+                    return;
+                }
+
+                if (String.valueOf(fatherN).length() != 10) {
+                    editTextFatherNumber.setError("Invalid Father Number");
+                    return;
+                }
+            }
+
+            semester = editTextSemester.getText().toString();
+            if (semester.isEmpty()) {
+                editTextSemester.setError("Semester is required");
                 return;
             }
 
@@ -430,7 +466,7 @@ public class addStudent extends AppCompatActivity {
                 state = "Not Specified";
             }
 
-            String pincode = editTextPincode.getText().toString();
+             pincode = editTextPincode.getText().toString();
             if (!pincode.isEmpty()) {
                 int pin;
                 try {
@@ -514,24 +550,30 @@ public class addStudent extends AppCompatActivity {
 
 
 
-
+        progressDialog.setTitle("Creating New Account");
+        progressDialog.setMessage("please wait, While we are creating a new account for you...");
+        progressDialog.setCanceledOnTouchOutside(true);
+        progressDialog.show();
 
         try{
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Name").setValue(name);
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Name").setValue(name);//d
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Degree").setValue(degree);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Branch").setValue(branch);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Section").setValue(Section);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Religion").setValue(Religion);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Category").setValue(category);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Mother Name").setValue(motherName);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Father Name").setValue(fatherName);
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Branch").setValue(branch);//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Section").setValue(Section);//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Religion").setValue(Religion);//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Category").setValue(category);//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Mother Name").setValue(motherName);//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Father Name").setValue(fatherName);//d
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Gender").setValue(Gender);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Blood Group").setValue(BloodGroup);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("DOB").setValue(DOB);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Enrollment Number").setValue(enrollmentNo);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Academic Year").setValue(academicYear);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Student Id").setValue(studentId);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Aadhar Number").setValue(adharNo);
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Blood Group").setValue(BloodGroup);//D
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("DOB").setValue(DOB);//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Enrollment Number").setValue(enrollmentNo);//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Academic Year").setValue(academicYear);//D
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Student Id").setValue(studentId);//
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Aadhar Number").setValue(adharNo);//D
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Semester").setValue(semester);//D
+
+
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Email").setValue(email);
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Mobile Number").setValue(contactNo);
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Father Email").setValue(fatherEmail);
@@ -541,13 +583,10 @@ public class addStudent extends AppCompatActivity {
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("State").setValue(state);
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Pincode").setValue(pincode);
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Country").setValue(Country);
-            //Firebase Authentication
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Authentication").child("Email").setValue(email);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Authentication").child("Password").setValue(password);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Authentication").child("Role").setValue("Student");
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Authentication").child("Status").setValue("Active");
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Father Number").setValue(fatherNumber);
 
-            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            //Firebase Authentication for geting
+
 
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -555,7 +594,12 @@ public class addStudent extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
+                                FirebaseUser usr = task.getResult().getUser();
+                                String userID = usr.getUid();
+                                mDatabase.child("Authentication").child("Student").child(userID).child("StudentId").setValue(studentId);
+                                mDatabase.child("Authentication").child("Student").child(userID).child("Status").setValue("Offline");
+
+
                                 Log.d(TAG, "createUserWithEmail:success");
                                 FirebaseUser user =  mAuth.getCurrentUser();
                                 Toast.makeText(addStudent.this, "Registration successful.", Toast.LENGTH_SHORT).show();

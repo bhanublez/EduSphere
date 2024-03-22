@@ -58,6 +58,7 @@
         <activity android:name=".Universal.holidayView"/>
         <activity android:name=".admin.registerStudent"/>
         <activity android:name=".admin.addStudent"/>
+        <activity android:name=".admin.addSubject"/>
 
 
 

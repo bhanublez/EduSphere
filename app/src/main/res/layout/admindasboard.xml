@@ -36,7 +36,11 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
 
+    tools:ignore="MissingConstraints">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -222,6 +226,49 @@
                 android:layout_margin="8dp"
                 android:text="Modify Result" />
 
+            <!--Add Subject-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddSubject"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+
+                android:textColor="@color/black"
+                android:backgroundTint="@color/adminBlue"
+                android:layout_margin="8dp"
+                android:text="Add Subject" />
+
+            <!--Modify Student-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnModifyStudent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+
+                android:textColor="@color/black"
+                android:backgroundTint="@color/adminBlue"
+                android:layout_margin="8dp"
+                android:text="Modify Student" />
+
+            <!--Modify Teacher-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnModifyTeacher"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+
+                android:textColor="@color/black"
+                android:backgroundTint="@color/adminBlue"
+                android:layout_margin="8dp"
+                android:text="Modify Teacher" />
+
+
+
+
+
 
 
             <!-- Additional Features Buttons -->
@@ -230,4 +277,5 @@
         </GridLayout>
 
     </LinearLayout>
+</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

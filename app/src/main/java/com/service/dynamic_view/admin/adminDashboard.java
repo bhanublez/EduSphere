@@ -3,6 +3,7 @@ package com.service.dynamic_view.admin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,10 @@ public class adminDashboard extends AppCompatActivity {
          Button teacherPasswordManagement = findViewById(R.id.btnTeacherPasswordManager);
          Button holidayManagement = findViewById(R.id.btnHolidaysManagement);
          Button modifyExam = findViewById(R.id.btnModifyExams);
+         Button btnAddSubject = findViewById(R.id.btnAddSubject);
+         Button modifySubject = findViewById(R.id.btnModifyStudent);
+         Button mdoifyTeacher = findViewById(R.id.btnModifyTeacher);
+
 
          btnAddTeacher.setOnClickListener(v -> {
             // Add Teacher
@@ -84,6 +89,16 @@ public class adminDashboard extends AppCompatActivity {
 
             modifyExam.setOnClickListener(v -> {
                 // Modify Exam
+            });
+
+            btnAddSubject.setOnClickListener(v -> {
+                try{
+                    Intent intent = new Intent(this, addSubject.class);
+                    this.startActivity(intent);
+
+                }catch (Exception e){
+                    Toast.makeText(this, "Error Encounter "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             });
 
 

@@ -1,7 +1,10 @@
 package com.service.dynamic_view.studentLayouts;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -23,10 +26,11 @@ import com.service.dynamic_view.Universal.holidayView;
 
 public class dashBoard extends AppCompatActivity{
 
-    FirebaseAuth mAuth;
-    FirebaseUser currentUser ;
+   private FirebaseAuth mAuth;
+   private FirebaseUser currentUser ;
 
-    TextView studentnaam,wiseId,enrollmentNumber,academicYears;
+    private TextView studentnaam,wiseId,enrollmentNumber,academicYears;
+    private String username,wiseid,enrollmentnumber,academicyears,studentId;
 
     protected void onCreate(Bundle bun) {
         super.onCreate(bun);
@@ -35,29 +39,97 @@ public class dashBoard extends AppCompatActivity{
         currentUser = mAuth.getCurrentUser();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//Roatated
 
+        //No internet connection back to login
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
+        if (networkInfo == null) {
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+            logout(findViewById(R.id.logout));
+        }
+
+
+        studentnaam = findViewById(R.id.studentnaam);
+        wiseId = findViewById(R.id.wiseID);
+        enrollmentNumber = findViewById(R.id.enrollmentNumber);
+        academicYears = findViewById(R.id.academicYears);
+
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getStudentDetails();
+
+        int hour = java.time.LocalTime.now().getHour();
+        if (hour >= 0 && hour < 12) {
+            wiseId.setText("Good Morning");
+        } else if (hour >= 12 && hour < 16) {
+            wiseId.setText("Good Afternoon");
+        } else {
+            wiseId.setText("Good Evening");
+        }
+    }
+
+    private void getStudentDetails() {
         if (currentUser != null) {
+
             String userId = currentUser.getUid();
 
-            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Student").child(userId);
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Authentication").child("Student").child(userId);
             userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                     if (dataSnapshot.exists()) {
-//                        String userName = dataSnapshot.child(String.valueOf(currentUser)).child("Personal Details").child("Name");
+
+                        studentId= dataSnapshot.child("StudentId").getValue().toString();
+
+                        DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference().child("Student").child(studentId);
+
+                        studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if (dataSnapshot.exists()) {
+                                    username = dataSnapshot.child("Personal Details").child("Name").getValue().toString();
+                                    enrollmentnumber = dataSnapshot.child("Personal Details").child("Enrollment Number").getValue().toString();
+                                    academicyears = dataSnapshot.child("Personal Details").child("Academic Year").getValue().toString();
+                                    studentnaam.setText(username);
+                                    enrollmentNumber.setText(enrollmentnumber);
+                                    academicYears.setText(academicyears);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                Toast.makeText(dashBoard.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                                mDatabase.child("Student").child(currentUser.getUid()).child("Authentication").child("Status").setValue("Offline");
+                                mAuth.signOut();
+                                Toast.makeText(dashBoard.this, "No user Founded", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
 
                     }
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    // Handle error
+                    Toast.makeText(dashBoard.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                    mDatabase.child("Student").child(currentUser.getUid()).child("Authentication").child("Status").setValue("Offline");
+                    mAuth.signOut();
+                    Toast.makeText(dashBoard.this, "Try Login Again", Toast.LENGTH_SHORT).show();
+
                 }
             });
         }
-
-
     }
+
+
     public void goTOAssignment(View view) {
         try {
             Intent intent = new Intent(this, assignmentView.class);
@@ -103,8 +175,6 @@ public class dashBoard extends AppCompatActivity{
     public void goToProfile(View view){
         try {
             Intent intent = new Intent(this, profileView.class);
-            Toast.makeText(this, "Chala yeh toh", Toast.LENGTH_SHORT).show();
-
             this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);
