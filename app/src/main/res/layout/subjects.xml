@@ -20,7 +20,6 @@
             android:id="@+id/subId2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginTop="10dp"
 
             android:hint="Subject Name Here"
@@ -35,7 +34,7 @@
             android:id="@+id/subCode2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="10dp"
             android:hint="Subject Code"
             android:textColor="@color/science_color"
             android:textSize="18dp"

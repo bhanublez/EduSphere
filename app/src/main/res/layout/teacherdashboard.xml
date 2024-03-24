@@ -54,12 +54,11 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/page__03_dashboard_ek1T"
-                            android:layout_width="386dp"
-                            android:layout_height="1313dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginEnd="11dp">
+                            android:padding="5dp"
+                            android:layout_marginTop="0dp">
 
 
                             <!--								<View-->
@@ -76,37 +75,38 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="25dp"
+                                android:padding="20dp"
                                 app:layout_constraintStart_toStartOf="@+id/time_table_2T"
                                 app:layout_constraintTop_toTopOf="parent">
 
                                 <TextView
-                                    android:id="@+id/name_studentT"
+                                    android:id="@+id/wiseID"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/hi_akshay_string"
+                                    android:text="Wising Teacher"
                                     android:textColor="@color/_bg___03_dashboard_ek2_color"
                                     android:textSize="30sp"
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:id="@+id/enrollmentNumberT"
+                                    android:id="@+id/teacherCollogeId"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginTop="76dp"
                                     android:alpha="0.61"
-                                    android:text="Teacher Id"
+                                    android:hint="Teacher Id"
                                     android:textColor="@color/_bg___03_dashboard_ek2_color"
                                     android:textSize="15sp" />
 
                                 <TextView
-                                    android:id="@+id/class_xi_b_roll_no__04_ek1T"
+                                    android:id="@+id/teacherNameID"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="0dp"
                                     android:layout_marginTop="41dp"
                                     android:alpha="0.61"
-                                    android:text="Teacher name"
+                                    android:hint="Name of Teacher"
                                     android:textColor="@color/_bg___03_dashboard_ek2_color"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
@@ -121,12 +121,12 @@
                                     android:src="@drawable/rectangle_2388" />
 
                                 <TextView
-                                    android:id="@+id/__2020_2021T"
+                                    android:id="@+id/experience"
                                     android:layout_width="96.53dp"
                                     android:layout_height="28.9dp"
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginTop="115dp"
-                                    android:text="Experience"
+                                    android:hint="Experience"
                                     android:textColor="@color/__2020_2021_color"
                                     android:textSize="14sp" />
 
@@ -154,10 +154,10 @@
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/dashboardT"
-                                android:layout_width="352dp"
-                                android:layout_height="952dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:layout_marginTop="15dp"
-                                android:layout_marginEnd="9dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -174,10 +174,9 @@
                                     app:layout_constraintTop_toBottomOf="@+id/teachersblockT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
                                         android:layout_marginTop="0dp"
                                         android:src="@drawable/bg_3" />
 
@@ -224,11 +223,12 @@
                                     app:layout_constraintTop_toBottomOf="@+id/change_passwordT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="wrap_content"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
                                         android:layout_marginTop="0dp"
+
+                                        android:onClick="goToAddExam"
                                         android:src="@drawable/bg_3" />
 
                                     <TextView
@@ -238,7 +238,6 @@
                                         android:layout_marginLeft="20dp"
                                         android:layout_marginTop="89dp"
                                         android:text="Exam Schedule"
-                                        android:onClick="goToAddExam"
                                         android:textColor="@color/_bg__bars_status_bar_iphone_light_ek1_color"
                                         android:textSize="18sp" />
 
@@ -310,10 +309,10 @@
                                     app:layout_constraintTop_toBottomOf="@+id/exam_boxT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+                                       android:id="@+id/logoutTeacher"
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
+                                        android:onClick="logoutT"
                                         android:layout_marginTop="0dp"
                                         android:src="@drawable/bg_3" />
 
@@ -383,11 +382,11 @@
                                     app:layout_constraintTop_toBottomOf="@+id/subjects_blockT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
                                         android:layout_marginTop="0dp"
+                                        android:onClick="StudentList"
                                         android:src="@drawable/bg_3" />
 
                                     <TextView
@@ -429,10 +428,10 @@
 
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
+                                        android:onClick="goToTeachingSubject"
                                         android:layout_marginTop="0dp"
                                         android:src="@drawable/bg_3" />
 
@@ -465,27 +464,26 @@
                                     android:id="@+id/assignmentT"
                                     android:layout_width="154dp"
                                     android:layout_height="133dp"
-                                    android:layout_marginStart="24dp"
+                                    android:layout_marginStart="20dp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/time_tableT"
                                     app:layout_constraintTop_toTopOf="@+id/time_tableT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
                                         android:layout_marginTop="0dp"
+                                        android:onClick="goToAddAssignment"
                                         android:src="@drawable/bg_3" />
 
                                     <TextView
                                         android:id="@+id/assignment_2T"
                                         android:layout_width="wrap_content"
                                         android:layout_height="28.8dp"
-                                        android:layout_marginLeft="16dp"
+                                        android:layout_marginLeft="10dp"
                                         android:layout_marginTop="89dp"
                                         android:text="Assignment Add"
-                                        android:onClick="goToAddAssignment"
                                         android:textColor="@color/_bg__bars_status_bar_iphone_light_ek1_color"
                                         android:textSize="18sp" />
 
@@ -565,11 +563,11 @@
                                     app:layout_constraintTop_toTopOf="parent">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
                                         android:layout_marginTop="0dp"
+                                        android:onClick="goTOScheduleTimeTable"
                                         android:src="@drawable/bg_3" />
 
 
@@ -605,21 +603,21 @@
                                     app:layout_constraintTop_toBottomOf="@+id/college_holidayT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
                                         android:layout_marginTop="0dp"
+                                        android:onClick="MarksAttendance"
                                         android:src="@drawable/bg_3" />
 
 
                                     <TextView
                                         android:id="@+id/result_2T"
-                                        android:layout_width="76.8dp"
-                                        android:layout_height="28.8dp"
-                                        android:layout_marginLeft="20dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
                                         android:layout_marginTop="89dp"
-                                        android:text="@string/result_2_string"
+                                        android:text="Mark Attendance"
                                         android:textColor="@color/_bg__dashboard_ek1_color"
                                         android:textSize="18sp" />
 
@@ -671,11 +669,11 @@
                                     app:layout_constraintTop_toBottomOf="@+id/time_tableT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
                                         android:layout_marginTop="0dp"
+                                        android:onClick="goToHolidayT"
                                         android:src="@drawable/bg_3" />
 
                                     <TextView
@@ -943,11 +941,11 @@
                                     app:layout_constraintTop_toBottomOf="@+id/recordT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
                                         android:layout_marginTop="0dp"
+                                        android:onClick="addFeedback"
                                         android:src="@drawable/bg_3" />
 
 
@@ -1116,10 +1114,10 @@
                                     app:layout_constraintTop_toBottomOf="@+id/eventsT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
+                                        android:onClick="goToAnnouncementT"
                                         android:layout_marginTop="0dp"
                                         android:src="@drawable/bg_3" />
 
@@ -1210,10 +1208,9 @@
                                     app:layout_constraintTop_toBottomOf="@+id/feedback_blockT">
 
                                     <ImageView
-                                        android:id="@+id/bg_3T"
+
                                         android:layout_width="154dp"
                                         android:layout_height="133dp"
-                                        android:layout_marginStart="0dp"
                                         android:layout_marginTop="0dp"
                                         android:src="@drawable/bg_3" />
 
@@ -1909,14 +1906,15 @@
                                     android:id="@+id/_bg__dp_ek1T"
                                     android:layout_width="90dp"
                                     android:layout_height="99dp"
-                                    android:background="@drawable/_bg__dp_ek1_shape"/>
+                                    android:background="#CAE6FC"
+                                    />
 
                                 <ImageView
                                     android:id="@+id/profile_bgT"
                                     android:layout_width="90dp"
                                     android:layout_height="99dp"
                                     android:contentDescription="profile_bg"
-                                    android:onClick="goToProfile"
+                                    android:onClick="goToProfileT"
                                     android:src="@drawable/profile_bg" />
 
                             </RelativeLayout>

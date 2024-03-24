@@ -129,6 +129,18 @@
 		<item>Civil Engineering</item>
 	</string-array>
 
+	<string-array name="branches_array">
+		<item>Computer Science</item>
+		<item>Electrical</item>
+		<item>Civil</item>
+		<item>Mechanical</item>
+	</string-array>
+
+	<string-array name="section_array">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+	</string-array>
 
 
 

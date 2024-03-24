@@ -37,7 +37,13 @@ public class adminDashboard extends AppCompatActivity {
 
 
          btnAddTeacher.setOnClickListener(v -> {
-            // Add Teacher
+             try{
+                      Intent intent = new Intent(this, addTeacher.class);
+                      this.startActivity(intent);
+
+                 }catch (Exception e){
+                      System.out.println("This is error" + e);
+                 }
          });
 
             btnAddStudent.setOnClickListener(v -> {

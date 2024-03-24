@@ -117,7 +117,7 @@ public class profileView extends AppCompatActivity {
                                     Category = dataSnapshot.child("Personal Details").child("Category").getValue().toString();
                                     motherName = dataSnapshot.child("Personal Details").child("Mother Name").getValue().toString();
                                     fatherName = dataSnapshot.child("Personal Details").child("Father Name").getValue().toString();
-                                    gender = dataSnapshot.child("Personal Details").child(("Gender")).getValue().toString();
+                                     gender =dataSnapshot.child("Personal Details").child(("Gender")).getValue().toString();
                                     bloodGroup = dataSnapshot.child("Personal Details").child("Blood Group").getValue().toString();
                                     Religion = dataSnapshot.child("Personal Details").child("Religion").getValue().toString();
                                     section = dataSnapshot.child("Personal Details").child("Section").getValue().toString();

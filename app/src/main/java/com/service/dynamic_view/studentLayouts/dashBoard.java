@@ -32,7 +32,10 @@ public class dashBoard extends AppCompatActivity{
     private TextView studentnaam,wiseId,enrollmentNumber,academicYears;
     private String username,wiseid,enrollmentnumber,academicyears,studentId;
 
+    private Boolean check= false;//Check if the user is student or not
+
     protected void onCreate(Bundle bun) {
+        check=false;
         super.onCreate(bun);
         setContentView(R.layout.dashboard);
         mAuth = FirebaseAuth.getInstance();
@@ -79,14 +82,20 @@ public class dashBoard extends AppCompatActivity{
             String userId = currentUser.getUid();
 
             DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Authentication").child("Student").child(userId);
+
+            //Below onDataChange online run when the loin user here is Student so that it want effect other category authenticate user
+            //check userRef is exist or not
+
             userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    if (dataSnapshot.exists()) {
+                    if ( dataSnapshot.exists()) {
+//                        String category = dataSnapshot.child("category").getValue().toString();
+//
+//                        if(category.equals("Student")){
 
-                        studentId= dataSnapshot.child("StudentId").getValue().toString();
-
+                        studentId = dataSnapshot.child("StudentId").getValue().toString();
                         DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference().child("Student").child(studentId);
 
                         studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -113,6 +122,7 @@ public class dashBoard extends AppCompatActivity{
                         });
 
 
+//                    }
                     }
                 }
 
@@ -249,6 +259,7 @@ public class dashBoard extends AppCompatActivity{
             System.out.println("This is error" + e);
         }
     }
+
 
 
 }

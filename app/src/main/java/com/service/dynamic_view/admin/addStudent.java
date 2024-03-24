@@ -28,7 +28,7 @@ public class addStudent extends AppCompatActivity {
 
     //Personal Details
     private String name,degree,branch,Section,Religion,category,motherName,fatherName,Gender,BloodGroup,DOB,enrollmentNo,academicYear,semester;
-    String studentId,adharNo;
+    private String studentId,adharNo;
 
     private String password,confirmPassword;
 
@@ -598,10 +598,12 @@ public class addStudent extends AppCompatActivity {
                                 String userID = usr.getUid();
                                 mDatabase.child("Authentication").child("Student").child(userID).child("StudentId").setValue(studentId);
                                 mDatabase.child("Authentication").child("Student").child(userID).child("Status").setValue("Offline");
+                                mDatabase.child("Authentication").child("Student").child(userID).child("category").setValue("Student");
 
 
                                 Log.d(TAG, "createUserWithEmail:success");
                                 FirebaseUser user =  mAuth.getCurrentUser();
+                                progressDialog.dismiss();
                                 Toast.makeText(addStudent.this, "Registration successful.", Toast.LENGTH_SHORT).show();
                             }
                         }

@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.service.dynamic_view.studentLayouts.dashBoard;
@@ -39,8 +40,23 @@ public class login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         if(mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(login.this, dashBoard.class));
-//            finish();
+            //Check if the user is a student
+            DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference().child("Authentication").child("Student").child(mAuth.getCurrentUser().getUid());
+            studentRef.get().addOnSuccessListener(new OnSuccessListener() {
+                @Override
+                public void onSuccess(Object o) {
+                    if(((DataSnapshot)o).exists()){
+                        startActivity(new Intent(login.this, dashBoard.class));
+                        finish(); // Finish the current activity to prevent going back to the login page
+                    }else{
+                        //User is there but not Student so it is teacher
+                        DatabaseReference teacherRef = FirebaseDatabase.getInstance().getReference().child("Authentication").child("Teacher").child(mAuth.getCurrentUser().getUid());
+                        teacherRef.child("Status").setValue("Online");
+                        startActivity(new Intent(login.this, com.service.dynamic_view.teacherLayouts.teacherDashboard.class));
+                        finish(); // Finish the current activity to prevent going back to the login page
+                    }
+                }
+            });
         }
 
 
@@ -120,11 +136,44 @@ public class login extends AppCompatActivity {
                         Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         FirebaseUser currentUser= mAuth.getCurrentUser();
                         String userId = currentUser.getUid();
-                        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Authentication").child("Student").child(userId);
-                        userRef.child("Status").setValue("Online");
-                        startActivity(new Intent(login.this, dashBoard.class));
-                        finish(); // Finish the current activity to prevent going back to the login page
-//                        System.out.println("This is user id" + userId);
+                        DatabaseReference studentRef, teacherRef;
+
+                        //Check if the user is a student
+                        studentRef = FirebaseDatabase.getInstance().getReference().child("Authentication").child("Student").child(userId);
+                        studentRef.get().addOnSuccessListener(new OnSuccessListener() {
+                            @Override
+                            public void onSuccess(Object o) {
+                                if(((DataSnapshot)o).exists()){
+                                    studentRef.child("Status").setValue("Online");
+                                    startActivity(new Intent(login.this, dashBoard.class));
+                                    finish(); // Finish the current activity to prevent going back to the login page
+                                }else{
+                                    //User is there but not Student so it is teacher
+                                    DatabaseReference teacherRef = FirebaseDatabase.getInstance().getReference().child("Authentication").child("Teacher").child(userId);
+                                    teacherRef.child("Status").setValue("Online");
+                                    startActivity(new Intent(login.this, com.service.dynamic_view.teacherLayouts.teacherDashboard.class));
+                                    finish(); // Finish the current activity to prevent going back to the login page
+                                }
+                            }
+                        });
+
+
+//                        try {
+//                            userRef = FirebaseDatabase.getInstance().getReference().child("Authentication").child("Student").child(userId);
+//                            Log.d("Error", "userRef: " + userRef);
+//                            userRef.child("Status").setValue("Online");
+////                            startActivity(new Intent(login.this, dashBoard.class));
+//                            finish(); // Finish the current activity to prevent going back to the login page
+//                        } catch (Exception e) {
+                            //User is there but not Student so it is teacher
+//                            Log.d("Error", "Bhai Kiya idar aya bhi yanahi ");
+//                            userRef = FirebaseDatabase.getInstance().getReference().child("Authentication").child("Teacher").child(userId);
+//                            userRef.child("Status").setValue("Online");
+//                            startActivity(new Intent(login.this, com.service.dynamic_view.teacherLayouts.teacherDashboard.class));
+//                            finish(); // Finish the current activity to prevent going back to the login page
+
+//                        }
+
 
                     }
                 })
@@ -132,8 +181,8 @@ public class login extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
 
-                        // Login failed, display error message
-                        Toast.makeText(login.this, "Login failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(login.this, "Login failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
                     }
                 });
 //        progressDialog.dismiss();
@@ -145,8 +194,8 @@ public class login extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(login.this, dashBoard.class));
-            finish();
+//            startActivity(new Intent(login.this, dashBoard.class));
+//            finish();
         }
     }
 
@@ -154,8 +203,8 @@ public class login extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         if(mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(login.this, dashBoard.class));
-            finish();
+//            startActivity(new Intent(login.this, dashBoard.class));
+//            finish();
         }
     }
 

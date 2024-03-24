@@ -59,6 +59,12 @@
         <activity android:name=".admin.registerStudent"/>
         <activity android:name=".admin.addStudent"/>
         <activity android:name=".admin.addSubject"/>
+        <activity android:name=".admin.addTeacher"/>
+        <activity android:name=".teacherLayouts.teacherProfile"/>
+        <activity android:name=".teacherLayouts.studentList"/>
+        <activity android:name=".teacherLayouts.select_class"/>
+
+
 
 
 
