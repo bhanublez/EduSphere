@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">EduSphere</string>
-    <string name="ek_img_content">ExportKit Image</string>
+	<string name="app_name">EduSphere</string>
+	<string name="ek_img_content">ExportKit Image</string>
 	<string name="get_started_string">Get Started</string>
 	<string name="edusphere_string">EduSphere</string>
-    <string name="sign_in_to_continue_string">Sign in to continue</string>
+	<string name="sign_in_to_continue_string">Sign in to continue</string>
 	<string name="hi_student_string">Hi User</string>
 	<string name="forgot_password__string">Forgot Password?</string>
 	<string name="input_title_copy_string">Password</string>
@@ -18,7 +18,7 @@
 	<string name="_10_nov_20_string">10 Nov 24</string>
 	<string name="__10_dec_20_string">10 Dec 24</string>
 	<string name="mathematics_string">DSA</string>
-    <string name="EduSphere">EduSphere\n</string>
+	<string name="EduSphere">EduSphere\n</string>
 	<string name="structure_of_atoms_string">Turing Machine</string>
 	<string name="assign_date_3_string">Assign Date</string>
 	<string name="last_submission_date_3_string">Exam Date</string>
@@ -91,8 +91,8 @@
 	<string name="exam_string">Exam</string>
 	<string name="assignment_2_string">Assignment</string>
 	<string name="change_password_2_string">Change Password</string>
-    <string name="blue_1_ek1">blue_1_ek1</string>
-    <string name="blue_b_1">blue_b_1</string>
+	<string name="blue_1_ek1">blue_1_ek1</string>
+	<string name="blue_b_1">blue_b_1</string>
 	<string name="result_2_string">Record</string>
 	<string name="feedback_string">Feedback</string>
 	<string name="collogeholiday_string">Holidays</string>
@@ -136,11 +136,108 @@
 		<item>Mechanical</item>
 	</string-array>
 
-	<string-array name="section_array">
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
+
+	<!--section_array_cs-->
+
+	<string-array name="section_array_cs">
+		<item>CS_1</item>
+		<item>CS_2</item>
+		<item>CS_3</item>
 	</string-array>
+
+	<!--section_array_it-->
+
+	<string-array name="section_array_it">
+		<item>IT_1</item>
+		<item>IT_2</item>
+		<item>IT_3</item>
+	</string-array>
+
+	<!--section_array_ec-->
+
+	<string-array name="section_array_ec">
+		<item>EC_1</item>
+		<item>EC_2</item>
+		<item>EC_3</item>
+	</string-array>
+
+	<!--section_array_ee-->
+
+	<string-array name="section_array_ee">
+		<item>EE_1</item>
+		<item>EE_2</item>
+		<item>EE_3</item>
+	</string-array>
+
+	<!--section_array_me-->
+
+	<string-array name="section_array_me">
+		<item>ME_1</item>
+		<item>ME_2</item>
+		<item>ME_3</item>
+	</string-array>
+
+	<!--section_array_ce-->
+
+	<string-array name="section_array_ce">
+		<item>CE_1</item>
+		<item>CE_2</item>
+		<item>CE_3</item>
+	</string-array>
+
+	<!--Degree Array-->
+	<string-array name="degree_array">
+		<item>UG</item>
+		<item>PG</item>
+	</string-array>
+
+	<!--Religion Array-->
+	<string-array name="religion_array">
+		<item>Hindu</item>
+		<item>Muslim</item>
+		<item>Sikh</item>
+		<item>Christian</item>
+		<item>Jain</item>
+		<item>Buddhist</item>
+		<item>Others</item>
+	</string-array>
+
+	<!--Category Array-->
+	<string-array name="category_array">
+		<item>Open</item>
+		<item>SC</item>
+		<item>ST</item>
+		<item>OBC</item>
+		<item>Others</item>
+	</string-array>
+
+	<!--Blood Group Array-->
+	<string-array name="blood_group_array">
+		<item>A+</item>
+		<item>A-</item>
+		<item>B+</item>
+		<item>B-</item>
+		<item>AB+</item>
+		<item>AB-</item>
+		<item>O+</item>
+		<item>O-</item>
+	</string-array>
+
+	<!--Medium Array-->
+	<string-array name="medium_array">
+		<item>English</item>
+		<item>Hindi</item>
+		<item>Others</item>
+	</string-array>
+
+	<!--Gender Array-->
+	<string-array name="gender_array">
+		<item>Male</item>
+		<item>Female</item>
+		<item>other</item>
+	</string-array>
+
+
 
 
 

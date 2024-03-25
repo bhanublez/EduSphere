@@ -168,8 +168,8 @@ public class teacherDashboard extends AppCompatActivity{
 
     public void MarksAttendance(View view) {
         try {
-//            Intent intent = new Intent(this, markAttendance.class);
-//            this.startActivity(intent);
+            Intent intent = new Intent(this, select_class.class);
+            this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);
         }

@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,17 +23,23 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.service.dynamic_view.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class addStudent extends AppCompatActivity {
 
     //Personal Details
-    private String name,degree,branch,Section,Religion,category,motherName,fatherName,Gender,BloodGroup,DOB,enrollmentNo,academicYear,semester;
+    private String name,degree,branch,Section,Religion,category,motherName,fatherName,Gender,BloodGroup,DOB,enrollmentNo,academicYear,semester,medium;
     private String studentId,adharNo;
 
     private String password,confirmPassword;
+    int check=0;
 
 
     //Contact Details
@@ -39,12 +48,14 @@ public class addStudent extends AppCompatActivity {
     //Firbase Data Base
     private DatabaseReference mDatabase;
     private  FirebaseAuth mAuth;
-    private EditText editTextName,editTextDegree,editTextBranch,editTextSection,editTextReligion,editTextCategory,
-            editTextMotherName,editTextFatherName,editTextGender,editTextBloodGroup,editTextDOB,editTextEnrollmentNumber,
+    private EditText editTextName,
+            editTextMotherName,editTextFatherName,editTextDOB,editTextEnrollmentNumber,
             editTextAcademicYear,editTextStudentId,editTextAdhar,editTextEmail,editTextMobileNumber,editTextFatherEmail,
             editTextAddress,editTextLocalAddress,editTextCity,editTextState,editTextPincode,editTextCountry,editTextPassword,
-            editTextConfirmPassword,editTextFatherNumber,editTextSemester;
+            editTextConfirmPassword,editTextFatherNumber;
     private ProgressDialog progressDialog;
+
+    private Spinner spinnerSection,spinnerSemester,spinnerBranch,spinnerDegree,spinnerMedium,spinnerCategory,spinnerRelion,spinnerBloddGroup,spinnerGender;
 
     private Button buttonRegister;
     @Override
@@ -54,20 +65,13 @@ public class addStudent extends AppCompatActivity {
 
         //Firebase Database
         mDatabase = FirebaseDatabase.getInstance().getReference();
-         mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
 
 
         editTextName=findViewById(R.id.editTextName);
-        editTextDegree=findViewById(R.id.editTextDegree);
-        editTextBranch=findViewById(R.id.editTextBranch);
-        editTextSection=findViewById(R.id.editTextSection);
-        editTextReligion=findViewById(R.id.editTextReligion);
-        editTextCategory=findViewById(R.id.editTextCategory);
         editTextMotherName=findViewById(R.id.editTextMotherName);
         editTextFatherName=findViewById(R.id.editTextFatherName);
-        editTextGender=findViewById(R.id.editTextGender);
-        editTextBloodGroup=findViewById(R.id.editTextBloodGroup);
         editTextDOB=findViewById(R.id.editTextDOB);
         editTextEnrollmentNumber=findViewById(R.id.editTextEnrollmentNumber);
         editTextAcademicYear=findViewById(R.id.editTextAcademicYear);
@@ -85,11 +89,120 @@ public class addStudent extends AppCompatActivity {
         editTextPassword=findViewById(R.id.editTextPassword);
         editTextConfirmPassword=findViewById(R.id.editTextConfirmPassword);
         editTextFatherNumber=findViewById(R.id.editTextFatherNumber);
-        editTextSemester=findViewById(R.id.editTextSemester);
 
 
         buttonRegister=findViewById(R.id.buttonRegister);
         progressDialog=new ProgressDialog(this);
+
+
+
+
+        spinnerSemester = findViewById(R.id.editTextSemester);
+        String[] semesterArray = getResources().getStringArray(R.array.semester_array);
+        ArrayAdapter<String> semesterAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, semesterArray);
+        semesterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSemester.setAdapter(semesterAdapter);
+
+        spinnerBranch = findViewById(R.id.editTextBranch);
+        String[] branchArray = getResources().getStringArray(R.array.department_array);
+        ArrayAdapter<String> branchAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, branchArray);
+        branchAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerBranch.setAdapter(branchAdapter);
+
+        spinnerDegree = findViewById(R.id.editTextDegree);
+        String[] degreeArray = getResources().getStringArray(R.array.degree_array);
+        ArrayAdapter<String> degreeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, degreeArray);
+        degreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDegree.setAdapter(degreeAdapter);
+
+
+        spinnerMedium = findViewById(R.id.editTextMedium);
+        String[] mediumArray = getResources().getStringArray(R.array.medium_array);
+        ArrayAdapter<String> mediumAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, mediumArray);
+        mediumAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerMedium.setAdapter(mediumAdapter);
+
+        spinnerCategory = findViewById(R.id.editTextCategory);
+        String[] categoryArray = getResources().getStringArray(R.array.category_array);
+        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categoryArray);
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategory.setAdapter(categoryAdapter);
+
+        spinnerRelion = findViewById(R.id.editTextReligion);
+        String[] religionArray = getResources().getStringArray(R.array.religion_array);
+        ArrayAdapter<String> religionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, religionArray);
+        religionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRelion.setAdapter(religionAdapter);
+
+        spinnerBloddGroup = findViewById(R.id.editTextBloodGroup);
+        String[] bloodGroupArray = getResources().getStringArray(R.array.blood_group_array);
+        ArrayAdapter<String> bloodGroupAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, bloodGroupArray);
+        bloodGroupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerBloddGroup.setAdapter(bloodGroupAdapter);
+
+        spinnerGender = findViewById(R.id.editTextGender);
+        String[] genderArray = getResources().getStringArray(R.array.gender_array);
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, genderArray);
+        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerGender.setAdapter(genderAdapter);
+
+        spinnerSection = findViewById(R.id.editTextSection);
+        spinnerBranch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                branch = spinnerBranch.getSelectedItem().toString();
+                if (branch.equals("Computer Science")) {
+                    String[] sectionArray = getResources().getStringArray(R.array.section_array_cs);
+                    ArrayAdapter<String> sectionAdapter = new ArrayAdapter<>(addStudent.this, android.R.layout.simple_spinner_item, sectionArray);
+                    sectionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerSection.setAdapter(sectionAdapter);
+                } else if (branch.equals("Information Technology")) {
+                    String[] sectionArray = getResources().getStringArray(R.array.section_array_it);
+                    ArrayAdapter<String> sectionAdapter = new ArrayAdapter<>(addStudent.this, android.R.layout.simple_spinner_item, sectionArray);
+                    sectionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerSection.setAdapter(sectionAdapter);
+                } else if (branch.equals("Electronics and Communication")) {
+                    String[] sectionArray = getResources().getStringArray(R.array.section_array_ec);
+                    ArrayAdapter<String> sectionAdapter = new ArrayAdapter<>(addStudent.this, android.R.layout.simple_spinner_item, sectionArray);
+                    sectionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerSection.setAdapter(sectionAdapter);
+                } else if (branch.equals("Electrical Engineering")) {
+                    String[] sectionArray = getResources().getStringArray(R.array.section_array_ee);
+                    ArrayAdapter<String> sectionAdapter = new ArrayAdapter<>(addStudent.this, android.R.layout.simple_spinner_item, sectionArray);
+                    sectionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerSection.setAdapter(sectionAdapter);
+                } else if (branch.equals("Mechanical Engineering")) {
+                    String[] sectionArray = getResources().getStringArray(R.array.section_array_me);
+                    ArrayAdapter<String> sectionAdapter = new ArrayAdapter<>(addStudent.this, android.R.layout.simple_spinner_item, sectionArray);
+                    sectionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerSection.setAdapter(sectionAdapter);
+                } else if (branch.equals("Civil Engineering")) {
+                    String[] sectionArray = getResources().getStringArray(R.array.section_array_ce);
+                    ArrayAdapter<String> sectionAdapter = new ArrayAdapter<>(addStudent.this, android.R.layout.simple_spinner_item, sectionArray);
+                    sectionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerSection.setAdapter(sectionAdapter);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -115,42 +228,22 @@ public class addStudent extends AppCompatActivity {
     private void registerUser(){
 
         try {
-            name = editTextName.getText().toString();
+            name = editTextName.getText().toString().toUpperCase();
             if (name.isEmpty()) {
                 editTextName.setError("Name is required");
+                editTextName.requestFocus();
                 return;
             }
 
-            degree = editTextDegree.getText().toString();
-            if (degree.isEmpty()) {
-                editTextDegree.setError("Degree is required");
-                return;
-            }
+            degree = spinnerDegree.getSelectedItem().toString();
 
+            branch = spinnerBranch.getSelectedItem().toString();
 
-            branch = editTextBranch.getText().toString();
-            if (branch.isEmpty()) {
-                editTextBranch.setError("Branch is required");
-                return;
-            }
-            Section = editTextSection.getText().toString();
-            if (Section.isEmpty()) {
-                editTextSection.setError("Section is required");
-                return;
-            }
-            Religion = editTextReligion.getText().toString();
-            if (Religion.isEmpty()) {
-//                editTextReligion.setError("Religion is required");
-//                return;
-                Religion = "Not Specified";
-            }
-            category = editTextCategory.getText().toString();
-            if (category.isEmpty()) {
-//                editTextCategory.setError("Category is required");
-//                return;
-                category = "Not Specified";
-            }
+            Section = spinnerSection.getSelectedItem().toString();
+            Religion = spinnerRelion.getSelectedItem().toString();
+            category = spinnerCategory.getSelectedItem().toString();
             motherName = editTextMotherName.getText().toString();
+            medium = spinnerMedium.getSelectedItem().toString();
             if (motherName.isEmpty()) {
 //                editTextMotherName.setError("Mother Name is required");
 //                return;
@@ -163,14 +256,7 @@ public class addStudent extends AppCompatActivity {
                 fatherName = "Not Specified";
             }
 
-            Gender = editTextGender.getText().toString().toLowerCase();
-            if (Gender.isEmpty()) {
-                editTextGender.setError("Gender is required either male, female, or other");
-                return;
-            } else if (!(Gender.equals("female") || Gender.equals("male") || Gender.equals("other"))) {
-                editTextGender.setError("Gender should be either male, female, or other");
-                return;
-            }
+            Gender = spinnerGender.getSelectedItem().toString();
 
             fatherNumber = editTextFatherNumber.getText().toString();
             if(fatherNumber.isEmpty()){
@@ -181,38 +267,35 @@ public class addStudent extends AppCompatActivity {
                     fatherN = Long.parseLong(fatherNumber);
                 } catch (NumberFormatException e) {
                     editTextFatherNumber.setError("Invalid Father Number");
+                    editTextFatherNumber.requestFocus();
                     return;
                 }
 
                 if (String.valueOf(fatherN).length() != 10) {
                     editTextFatherNumber.setError("Invalid Father Number");
+                    editTextFatherNumber.requestFocus();
                     return;
                 }
             }
 
-            semester = editTextSemester.getText().toString();
-            if (semester.isEmpty()) {
-                editTextSemester.setError("Semester is required");
-                return;
-            }
+            semester = spinnerSemester.getSelectedItem().toString();
 
 
-            BloodGroup = editTextBloodGroup.getText().toString();
-            if (BloodGroup.isEmpty()) {
-//                editTextBloodGroup.setError("Blood Group is required");
-//                return;
-                BloodGroup = "Not Specified";
-            }
+
+            BloodGroup = spinnerBloddGroup.getSelectedItem().toString();
 
             DOB = editTextDOB.getText().toString();
             if (DOB.isEmpty()) {
                 editTextDOB.setError("Date of Birth is required in YYYY-MM-DD format");
+                editTextDOB.requestFocus();
+                editTextDOB.requestFocus();
                 return;
             } else {
                 //Check for valid formating of date
                 String[] dateParts = DOB.split("-");
                 if (dateParts.length != 3) {
                     editTextDOB.setError("Invalid date format");
+                    editTextDOB.requestFocus();
                     return;
                 }
 
@@ -221,6 +304,7 @@ public class addStudent extends AppCompatActivity {
                         Integer.parseInt(part);
                     } catch (NumberFormatException e) {
                         editTextDOB.setError("Invalid date format");
+                        editTextDOB.requestFocus();
                         return;
                     }
                 }
@@ -232,51 +316,91 @@ public class addStudent extends AppCompatActivity {
                 }
                 if (date[1] < 1 || date[1] > 12) {
                     editTextDOB.setError("Invalid Month");
+                    editTextDOB.requestFocus();
                     return;
                 }
                 if (date[2] < 1 || date[2] > 31) {
                     editTextDOB.setError("Invalid Day");
+                    editTextDOB.requestFocus();
                     return;
                 }
                 int currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
                 if (date[0] < 1900 || date[0] > currentYear) {
                     editTextDOB.setError("Invalid Year");
+                    editTextDOB.requestFocus();
                     return;
                 }
             }
             enrollmentNo = editTextEnrollmentNumber.getText().toString();
+
             if (enrollmentNo.isEmpty()) {
                 editTextEnrollmentNumber.setError("Enrollment Number is required");
+                editTextEnrollmentNumber.requestFocus();
                 return;
             } else {
                 //Check if enrollment number already exists
-
-                mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Enrollment Number").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                mDatabase=FirebaseDatabase.getInstance().getReference();
+                mDatabase.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DataSnapshot snapshot = task.getResult();
-                            if (snapshot.exists()) {
-                                editTextEnrollmentNumber.setError("Enrollment Number already exists");
-                                return;
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        check=0;
+                        List<String> existingEnrollmentNumbers = new ArrayList<>();
+                        // Iterate through each student ID
+                        for (DataSnapshot studentSnapshot : dataSnapshot.getChildren()) {
+                            DataSnapshot personalDetails = studentSnapshot.child("Personal Details");
+                            if (personalDetails.exists()) {
+                                // Get enrollment number for each student
+                                String enrollmentNumber = personalDetails.child("Enrollment Number").getValue(String.class);
+                                if (enrollmentNumber != null) {
+//                                    System.out.println(enrollmentNumber);
+                                    existingEnrollmentNumbers.add(enrollmentNumber);
+                                }
                             }
                         }
+
+                        // Now you have a list of existing enrollment numbers
+                        // Check if the enrollment number exists in the list
+                        enrollmentNo=enrollmentNo.toUpperCase().trim();
+                        String newEnrollmentNumber = enrollmentNo; // Replace with the enrollment number you want to check
+                        if (existingEnrollmentNumbers.contains(newEnrollmentNumber)) {
+                            editTextEnrollmentNumber.setError("Enrollment Number already exists");
+                        } else {
+                            check=1;
+                        }
+                    }
+
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle potential errors here
                     }
                 });
+
+                if(check==0){
+                    editTextEnrollmentNumber.requestFocus();
+                    return;
+                }
+
+
+
             }
 
             academicYear = editTextAcademicYear.getText().toString();
 
             if (academicYear.isEmpty()) {
                 editTextAcademicYear.setError("Academic Year is required in YYYY-YYYY format");
+                editTextAcademicYear.requestFocus();
                 return;
             } else {
                 //check format
                 String[] dateParts = academicYear.split("-");
                 if (dateParts.length != 2) {
                     editTextAcademicYear.setError("Invalid academic year format. Use YYYY-YYYY format");
+                    editTextAcademicYear.requestFocus();
                     return;
                 }
+
 
 
                 try {
@@ -284,10 +408,12 @@ public class addStudent extends AppCompatActivity {
                     int endYear = Integer.parseInt(dateParts[1]);
                     if (startYear <1000 || startYear>endYear || endYear<1000 ) {
                         editTextAcademicYear.setError("Invalid academic year range. Year should be greater than 1900, and start year should be less than end year.");
+                        editTextAcademicYear.requestFocus();
                         return;
                     }
                 } catch (NumberFormatException e) {
                     editTextAcademicYear.setError("Invalid academic year format. Use numeric values");
+                    editTextAcademicYear.requestFocus();
                     return;
                 }
 
@@ -296,100 +422,150 @@ public class addStudent extends AppCompatActivity {
             studentId = editTextStudentId.getText().toString();
             if (studentId.isEmpty()) {
                 editTextStudentId.setError("Student ID is required");
+                editTextStudentId.requestFocus();
                 return;
             }
+
+
 
             int sId;
             try {
                 sId = Integer.parseInt(studentId);
             } catch (NumberFormatException e) {
                 editTextStudentId.setError("Invalid student ID");
+                editTextStudentId.requestFocus();
                 return;
             }
 
             if (sId <= 0) {
                 editTextStudentId.setError("Student ID must be a positive number");
+                editTextStudentId.requestFocus();
                 return;
             }
 
+            check=1;
 // Check if student ID already exists in the database
-            mDatabase.child("Student").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            mDatabase.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DataSnapshot snapshot = task.getResult();
-                        if (snapshot.exists()) {
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        if(snapshot.getKey().equals(studentId)){
                             editTextStudentId.setError("Student ID already exists");
+                            check=0;
+
                             return;
                         }
-                    } else {
-                        // Handle database error
-                        Log.e("Firebase", "Error getting student ID from database", task.getException());
-                        // You may display a toast or handle the error in another way
                     }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle potential errors here
                 }
             });
+    if(check==0){
+        editTextStudentId.requestFocus();
+        return;
+    }
 
 
-            adharNo = editTextAdhar.getText().toString();
+
+                    adharNo = editTextAdhar.getText().toString();
             if (!adharNo.isEmpty()) {
                 long adharN;
                 try {
                     adharN = Long.parseLong(adharNo);
                 } catch (NumberFormatException e) {
                     editTextAdhar.setError("Invalid Aadhar Number");
+                    editTextAdhar.requestFocus();
                     return;
                 }
 
                 if (String.valueOf(adharN).length() != 12) {
                     editTextAdhar.setError("Invalid Aadhar Number");
+                    editTextAdhar.requestFocus();
                     return;
                 }
 
                 // Check if Aadhar number already exists in the database
-                mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Adhar Number").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                mDatabase.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
+
                     @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DataSnapshot snapshot = task.getResult();
-                            if (snapshot.exists()) {
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                            if(snapshot.child("Personal Details").child("Aadhar Number").getValue().equals(adharNo)){
                                 editTextAdhar.setError("Aadhar Number already exists");
                                 return;
                             }
-                        } else {
-                            // Handle database error
-                            Log.e("Firebase", "Error getting Aadhar number from database", task.getException());
-
                         }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle potential errors here
                     }
                 });
-            }else {
+
+                }else {
                 adharNo = "Not Specified";
             }
 
             email = editTextEmail.getText().toString();
             if (email.isEmpty()) {
                 editTextEmail.setError("Email is required");
+                editTextEmail.requestFocus();
                 return;
             } else {
                 //Valid Email
                 if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     editTextEmail.setError("Invalid Email");
+                    editTextEmail.requestFocus();
                     return;
                 }
-                mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Email").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+
+                mDatabase.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DataSnapshot snapshot = task.getResult();
-                            if (snapshot.exists()) {
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        check = 0;
+
+                        for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                            if(snapshot.child("Contact Details").child("Email").getValue().equals(email)){
                                 editTextEmail.setError("Email already exists");
+                                check = 1;
                                 return;
                             }
                         }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle potential errors here
                     }
                 });
-            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    }
 
             contactNo = editTextMobileNumber.getText().toString();
             if (!contactNo.isEmpty()) {
@@ -398,37 +574,40 @@ public class addStudent extends AppCompatActivity {
                     contact = Long.parseLong(contactNo);
                 } catch (NumberFormatException e) {
                     editTextMobileNumber.setError("Invalid Mobile Number");
+                    editTextMobileNumber.requestFocus();
                     return;
                 }
 
                 if (String.valueOf(contact).length() != 10) {
                     editTextMobileNumber.setError("Invalid Mobile Number");
+                    editTextMobileNumber.requestFocus();
                     return;
                 }
 
                 // Check if mobile number already exists in the database
-
-                mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Mobile Number").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                check=1;
+                mDatabase.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DataSnapshot snapshot = task.getResult();
-                            if (snapshot.exists()) {
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                            if(snapshot.child("Contact Details").child("Mobile Number").getValue().equals(contactNo)){
                                 editTextMobileNumber.setError("Mobile Number already exists");
                                 return;
                             }
-                        } else {
-                            // Handle database error
-                            Log.e("Firebase", "Error getting mobile number from database", task.getException());
-                            // You may display a toast or handle the error in another way
                         }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle potential errors here
                     }
                 });
-            }else {
+                }else {
                 contactNo = "Not Specified";
             }
 
-
+            check=1;
             fatherEmail = editTextFatherEmail.getText().toString();
             if (fatherEmail.isEmpty()) {
 //                editTextFatherEmail.setError("Father Email is required");
@@ -438,6 +617,7 @@ public class addStudent extends AppCompatActivity {
                 //Valid Email
                 if (!android.util.Patterns.EMAIL_ADDRESS.matcher(fatherEmail).matches()) {
                     editTextFatherEmail.setError("Invalid Email ");
+                    editTextFatherEmail.requestFocus();
                     return;
                 }
             }
@@ -466,18 +646,20 @@ public class addStudent extends AppCompatActivity {
                 state = "Not Specified";
             }
 
-             pincode = editTextPincode.getText().toString();
+            pincode = editTextPincode.getText().toString();
             if (!pincode.isEmpty()) {
                 int pin;
                 try {
                     pin = Integer.parseInt(pincode);
                 } catch (NumberFormatException e) {
                     editTextPincode.setError("Invalid Pincode");
+                    editTextPincode.requestFocus();
                     return;
                 }
 
                 if (pin <= 0) {
                     editTextPincode.setError("Invalid Pincode");
+                    editTextPincode.requestFocus();
                     return;
                 }
             }
@@ -497,9 +679,11 @@ public class addStudent extends AppCompatActivity {
             password = editTextPassword.getText().toString();
             if (password.isEmpty()) {
                 editTextPassword.setError("Password is required");
+                editTextPassword.requestFocus();
                 return;
             } else if (password.length() < 12) {
                 editTextPassword.setError("Password must be greater than 12 characters");
+                editTextPassword.requestFocus();
                 return;
             } else {
                 boolean containsUpperCase = false;
@@ -522,6 +706,7 @@ public class addStudent extends AppCompatActivity {
                 if (!containsUpperCase || !containsLowerCase || !containsDigit || !containsSpecialChar) {
                     String errorMessage = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character";
                     editTextPassword.setError(errorMessage);
+                    editTextPassword.requestFocus();
                     return;
                 }
             }
@@ -529,61 +714,52 @@ public class addStudent extends AppCompatActivity {
             confirmPassword = editTextConfirmPassword.getText().toString();
             if (confirmPassword.isEmpty()) {
                 editTextConfirmPassword.setError("Confirm Password is required");
+                editTextPassword.requestFocus();
                 return;
             }
             if (!password.equals(confirmPassword)) {
                 editTextConfirmPassword.setError("Password do not match");
+                editTextConfirmPassword.requestFocus();
                 return;
             }
-        }catch (Exception e){
-            Log.e("Error",e.getMessage());
-            Log.i("Error",e.getMessage());
-            Log.d("Error",e.getMessage());
-            Log.v("Error",e.getMessage());
-//            Intent intent = getIntent();
-//            finish();
-            Toast.makeText(this, "Invalid data Entered "+e.getMessage(), Toast.LENGTH_LONG).show();
-
-//            startActivity(intent);
-        }
 
 
 
-
+    if(check==1) {
         progressDialog.setTitle("Creating New Account");
         progressDialog.setMessage("please wait, While we are creating a new account for you...");
         progressDialog.setCanceledOnTouchOutside(true);
         progressDialog.show();
 
-        try{
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Name").setValue(name);//d
+        try {
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Name").setValue(name.trim());//d
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Degree").setValue(degree);
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Branch").setValue(branch);//d
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Section").setValue(Section);//d
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Religion").setValue(Religion);//d
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Category").setValue(category);//d
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Mother Name").setValue(motherName);//d
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Father Name").setValue(fatherName);//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Mother Name").setValue(motherName.trim());//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Father Name").setValue(fatherName.trim());//d
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Gender").setValue(Gender);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Blood Group").setValue(BloodGroup);//D
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Blood Group").setValue(BloodGroup.trim());//D
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("DOB").setValue(DOB);//d
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Enrollment Number").setValue(enrollmentNo);//d
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Enrollment Number").setValue(enrollmentNo.trim());//d
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Academic Year").setValue(academicYear);//D
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Student Id").setValue(studentId);//
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Aadhar Number").setValue(adharNo);//D
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Student Id").setValue(studentId.trim());//
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Aadhar Number").setValue(adharNo.trim());//D
             mDatabase.child("Student").child(String.valueOf(studentId)).child("Personal Details").child("Semester").setValue(semester);//D
 
 
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Email").setValue(email);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Mobile Number").setValue(contactNo);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Father Email").setValue(fatherEmail);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Permanent Address").setValue(permanentAddress);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Local Address").setValue(localAddress);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("City").setValue(district);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("State").setValue(state);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Pincode").setValue(pincode);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Country").setValue(Country);
-            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Father Number").setValue(fatherNumber);
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Email").setValue(email.trim());
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Mobile Number").setValue(contactNo.trim());
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Father Email").setValue(fatherEmail.trim());
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Permanent Address").setValue(permanentAddress.trim());
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Local Address").setValue(localAddress.trim());
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("City").setValue(district.trim());
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("State").setValue(state.trim());
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Pincode").setValue(pincode.trim());
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Country").setValue(Country.trim());
+            mDatabase.child("Student").child(String.valueOf(studentId)).child("Contact Details").child("Father Number").setValue(fatherNumber.trim());
 
             //Firebase Authentication for geting
 
@@ -600,26 +776,79 @@ public class addStudent extends AppCompatActivity {
                                 mDatabase.child("Authentication").child("Student").child(userID).child("Status").setValue("Offline");
                                 mDatabase.child("Authentication").child("Student").child(userID).child("category").setValue("Student");
 
+                                //orginal Datbase storing
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Name").setValue(name.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Degree").setValue(degree);
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Branch").setValue(branch);
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Section").setValue(Section);
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Religion").setValue(Religion);
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Category").setValue(category);
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Mother Name").setValue(motherName.trim().toUpperCase());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Father Name").setValue(fatherName.trim().toUpperCase());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Gender").setValue(Gender);
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Blood Group").setValue(BloodGroup.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("DOB").setValue(DOB);
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Enrollment Number").setValue(enrollmentNo.trim().toUpperCase());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Academic Year").setValue(academicYear);
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Student Id").setValue(studentId.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Aadhar Number").setValue(adharNo.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Semester").setValue(semester);
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Personal Details").child("Medium").setValue(medium);
+
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("Email").setValue(email.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("Mobile Number").setValue(contactNo.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("Father Email").setValue(fatherEmail.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("Permanent Address").setValue(permanentAddress.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("Local Address").setValue(localAddress.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("City").setValue(district.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("State").setValue(state.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("Pincode").setValue(pincode.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("Country").setValue(Country.trim());
+                                mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(Section).child("Students").child(studentId).child("Contact Details").child("Father Number").setValue(fatherNumber.trim());
+
 
                                 Log.d(TAG, "createUserWithEmail:success");
-                                FirebaseUser user =  mAuth.getCurrentUser();
+                                FirebaseUser user = mAuth.getCurrentUser();
                                 progressDialog.dismiss();
                                 Toast.makeText(addStudent.this, "Registration successful.", Toast.LENGTH_SHORT).show();
+                                Intent intent=new Intent(addStudent.this,adminDashboard.class);
+                                startActivity(intent);
+                                finish();
+
                             }
                         }
                     });
 
+
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            Log.i("Error", e.getMessage());
+            Log.d("Error", e.getMessage());
+            Log.v("Error", e.getMessage());
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
+            progressDialog.dismiss();
+            Toast.makeText(this, "Invalid data Entered ", Toast.LENGTH_SHORT).show();
+        }
+
+        progressDialog.dismiss();
+    }
 
         }catch (Exception e){
             Log.e("Error",e.getMessage());
             Log.i("Error",e.getMessage());
             Log.d("Error",e.getMessage());
             Log.v("Error",e.getMessage());
-            Intent intent = getIntent();
-            finish();
-            startActivity(intent);
-            Toast.makeText(this, "Invalid data Entered ", Toast.LENGTH_SHORT).show();
+//            Intent intent = getIntent();
+//            finish();
+            Toast.makeText(this, "Invalid data Entered "+e.getMessage(), Toast.LENGTH_LONG).show();
+            progressDialog.dismiss();
+
+//            startActivity(intent);
         }
+
+
 
 
     }

@@ -115,6 +115,23 @@
                 android:layout_marginTop="10dp"
                 />
 
+            <!--Teacher Subject List-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subject"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/teacher_subject"
+                android:layout_marginTop="10dp"
+                />
+
+
             <!--Search Button-->
                 <Button
                 android:layout_width="wrap_content"
@@ -125,6 +142,7 @@
                 android:backgroundTint="@color/ellipse_2_color"
                 android:layout_marginTop="10dp"
                 />
+
 
 
 

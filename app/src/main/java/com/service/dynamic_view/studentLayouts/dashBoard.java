@@ -57,8 +57,6 @@ public class dashBoard extends AppCompatActivity{
         enrollmentNumber = findViewById(R.id.enrollmentNumber);
         academicYears = findViewById(R.id.academicYears);
 
-
-
     }
 
     @Override
@@ -255,6 +253,7 @@ public class dashBoard extends AppCompatActivity{
             mAuth.signOut();
             Intent intent = new Intent(this, com.service.dynamic_view.MainActivity.class);
             this.startActivity(intent);
+            finish();
         } catch (Exception e) {
             System.out.println("This is error" + e);
         }
