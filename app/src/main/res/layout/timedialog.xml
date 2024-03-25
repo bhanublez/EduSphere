@@ -75,19 +75,31 @@
             android:hint="Subject code"
             android:textColor="@color/__08_15am___9_00am_color"
             android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="86dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_toRightOf="@+id/duration_slot"
+            >
+            <TextView
+                android:id="@+id/periodNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_toRightOf="@+id/duration_slot"
+                android:background="@color/ellipse_2_color"
+                android:text="@string/period_1_string"
+                android:textAlignment="center"
+                android:textColor="@color/period_1_color"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/periodNumber"
-            android:layout_width="74dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="260dp"
-            android:layout_marginTop="82dp"
-            android:background="@color/ellipse_2_color"
-            android:text="@string/period_1_string"
-            android:textAlignment="center"
-            android:textColor="@color/period_1_color"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+        </LinearLayout>
+
+
 
     </RelativeLayout>
 

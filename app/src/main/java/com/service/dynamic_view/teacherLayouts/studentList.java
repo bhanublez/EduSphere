@@ -99,13 +99,6 @@ public class studentList extends AppCompatActivity{
 
     private void bachokodalo() {
 
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        View view = getLayoutInflater().inflate(R.layout.student_attendance_struct, null);
-//        final TextView enrl = view.findViewById(R.id.enrl);
-//        final TextView name = view.findViewById(R.id.stdnaam);
-//        final CheckBox attendance = view.findViewById(R.id.attendance);
-//        layout = findViewById(R.id.container);
-
         DatabaseReference studentList= mDatabase.child("department").child(branch).child("semesters").child(semester).child("section").child(section).child("Students");
 
 
@@ -374,6 +367,20 @@ public class studentList extends AppCompatActivity{
 //            Log.e("Error", "Parent layout is null");
 //        }
     }
+
+//    private void add(String enrl, String naam,String stuId) {
+//        final View view = getLayoutInflater().inflate(R.layout.student_attendance_struct, null);
+//        TextView enrl1 = view.findViewById(R.id.enrl);
+//        TextView name = view.findViewById(R.id.stdnaam);
+//        Button present = view.findViewById(R.id.present);
+//        Button absent = view.findViewById(R.id.absent);
+//        enrl1.setText(enrl);
+//        name.setText(naam);
+//
+//
+//    }
+//
+
 
 
 

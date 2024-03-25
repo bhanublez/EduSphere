@@ -84,7 +84,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@android:color/white"
             android:padding="8dp"
             android:text="Tue"
             android:textColor="@android:color/black"
@@ -102,7 +102,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@android:color/white"
             android:padding="8dp"
             android:text="Wed"
             android:textColor="@android:color/black"
@@ -120,7 +120,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@android:color/white"
             android:padding="8dp"
             android:text="Thu"
             android:textColor="@android:color/black"
@@ -138,7 +138,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@android:color/white"
             android:padding="8dp"
             android:text="Fri"
             android:textColor="@android:color/black"
@@ -156,7 +156,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@android:color/white"
             android:padding="8dp"
             android:text="Sat"
             android:textColor="@android:color/black"
@@ -174,7 +174,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@android:color/white"
             android:padding="8dp"
             android:text="Sun"
             android:textColor="@android:color/black"
@@ -202,18 +202,6 @@
             android:orientation="vertical"
             />
     </ScrollView>
-
-    <ImageView
-        android:id="@+id/add_Slot"
-        android:layout_width="58dp"
-        android:layout_height="51dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:onClick="addSlot"
-        android:scaleType="fitXY"
-        android:src="@drawable/addentry"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

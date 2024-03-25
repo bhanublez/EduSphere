@@ -107,6 +107,8 @@ public class teacherDashboard extends AppCompatActivity{
     public void goToAddAssignment(View view) {
         try {
             Intent intent = new Intent(this, addAssignment.class);
+            intent.putExtra("teacherId",teacherID);
+
             this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);
@@ -140,8 +142,10 @@ public class teacherDashboard extends AppCompatActivity{
 
     public void goTOScheduleTimeTable(View view) {
         try {
-//            Intent intent = new Intent(this, scheduleTimeTable.class);
-//            this.startActivity(intent);
+            Intent intent = new Intent(this, schedule_TimeTable.class);
+            //pass teacher id
+            intent.putExtra("teacherId",teacherID);
+            this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);
         }

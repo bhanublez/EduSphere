@@ -31,6 +31,7 @@ public class dashBoard extends AppCompatActivity{
 
     private TextView studentnaam,wiseId,enrollmentNumber,academicYears;
     private String username,wiseid,enrollmentnumber,academicyears,studentId;
+    private String branch, semester, section;
 
     private Boolean check= false;//Check if the user is student or not
 
@@ -103,6 +104,9 @@ public class dashBoard extends AppCompatActivity{
                                     username = dataSnapshot.child("Personal Details").child("Name").getValue().toString();
                                     enrollmentnumber = dataSnapshot.child("Personal Details").child("Enrollment Number").getValue().toString();
                                     academicyears = dataSnapshot.child("Personal Details").child("Academic Year").getValue().toString();
+                                    branch = dataSnapshot.child("Personal Details").child("Branch").getValue().toString();
+                                    semester = dataSnapshot.child("Personal Details").child("Semester").getValue().toString();
+                                    section = dataSnapshot.child("Personal Details").child("Section").getValue().toString();
                                     studentnaam.setText(username);
                                     enrollmentNumber.setText(enrollmentnumber);
                                     academicYears.setText(academicyears);
@@ -141,6 +145,10 @@ public class dashBoard extends AppCompatActivity{
     public void goTOAssignment(View view) {
         try {
             Intent intent = new Intent(this, assignmentView.class);
+            intent.putExtra("studentId",studentId);
+            intent.putExtra("branch",branch);
+            intent.putExtra("semester",semester);
+            intent.putExtra("section",section);
             this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);
@@ -193,6 +201,10 @@ public class dashBoard extends AppCompatActivity{
         try {
             Intent intent = new Intent(this, studentTable.class);
 //            Toast.makeText(this, "Chala yeh toh", Toast.LENGTH_SHORT).show();
+            intent.putExtra("studentId",studentId);
+            intent.putExtra("branch",branch);
+            intent.putExtra("semester",semester);
+            intent.putExtra("section",section);
             this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);

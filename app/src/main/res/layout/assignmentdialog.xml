@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/curve_bg_ek1"
-        android:padding="10dp">
+        android:padding="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cardAssignment"
@@ -37,7 +37,6 @@
                 android:id="@+id/subjectName_a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:hint="Subject Name"
                 android:textColor="@color/structure_of_atoms_color"
@@ -142,7 +141,6 @@
                 android:id="@+id/teacherNaam_aa"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
-                android:layout_marginLeft="10dp"
                 android:hint="Teacher Name"
                 android:textColor="@color/science_color"
                 android:textSize="14sp"
@@ -151,6 +149,34 @@
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteY="10dp" />
+
+            <!--Text View and Multi Line for Description-->
+            <TextView
+                android:id="@+id/description_a"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="5dp"
+                android:text="Description"
+                android:textColor="@color/assign_date_3_color"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/subjectName_a"
+                app:layout_constraintTop_toBottomOf="@+id/last_submission_date_3_ek1" />
+
+            <EditText
+                android:id="@+id/description_a_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:textColor="@color/structure_of_atoms_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/description_a"
+                app:layout_constraintStart_toStartOf="@+id/description_a"
+                app:layout_constraintTop_toBottomOf="@+id/description_a" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>

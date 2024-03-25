@@ -63,6 +63,7 @@
         <activity android:name=".teacherLayouts.teacherProfile"/>
         <activity android:name=".teacherLayouts.studentList"/>
         <activity android:name=".teacherLayouts.select_class"/>
+        <activity android:name=".teacherLayouts.schedule_TimeTable"/>
 
 
 

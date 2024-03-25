@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/periodNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@color/ellipse_2_color"
+        android:text="@string/period_1_string"
+        android:textAlignment="center"
+        android:textColor="@color/period_1_color"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+    <!--TextVie start-end Time-->
+    <TextView
+        android:id="@+id/start_end_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:hint="Start-End Time"
+        android:textAlignment="center"
+        android:textColor="@color/__08_15am___9_00am_color"
+        android:textSize="14sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <!--branch-->
+        <TextView
+            android:id="@+id/branch_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:hint="Branch Name"
+            android:textColor="@color/computer_science_color"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/semester_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:hint="Semester Name"
+
+        android:textColor="@color/computer_science_color"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+    <TextView
+        android:id="@+id/subject_naaam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:hint="Enter Subject Name"
+        android:textColor="@color/computer_science_color"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+        <!--Subject Code-->
+        <TextView
+            android:id="@+id/subject_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Subject Code"
+            android:padding="8dp"
+            android:textColor="@color/computer_science_color"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/border_"
+        android:layout_width="312.85dp"
+        android:layout_height="1dp"
+        android:background="@drawable/border__shape" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+    <TextView
+        android:id="@+id/section_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Section Name"
+        android:padding="10dp"
+        android:textColor="@color/__08_15am___9_00am_color"
+        android:textSize="14sp" />
+    <!--Room Number-->
+    <TextView
+        android:id="@+id/room_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Room Number"
+        android:padding="10dp"
+        android:textColor="@color/__08_15am___9_00am_color"
+        android:textSize="14sp" />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

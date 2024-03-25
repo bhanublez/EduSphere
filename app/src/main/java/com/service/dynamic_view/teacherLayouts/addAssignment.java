@@ -1,6 +1,7 @@
 package com.service.dynamic_view.teacherLayouts;
 
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,7 +14,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.service.dynamic_view.R;
 
 import java.text.ParseException;
@@ -22,22 +25,35 @@ import java.util.Date;
 import java.util.Locale;
 
 public class addAssignment extends AppCompatActivity {
-    AlertDialog dialog;
-    LinearLayout layout;
-    ImageView add;
+    private AlertDialog dialog;
+    private LinearLayout layout;
+    private ImageView add;
 
-    ImageView back;
+    private ImageView back;
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
 
+    private FirebaseUser currentUser ;
+
+    private String branch, semester, section,studentId;
+    private String subjectName,teacherName,subjectCode,data,marks,submissionDate,assignmentDate,set;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.assignmentallotment);
         add = findViewById(R.id.addBlock);
         layout = findViewById(R.id.addContainer);
         back=findViewById(R.id.backArrowOfAm);
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         buildDialog();
 
@@ -64,10 +80,7 @@ public class addAssignment extends AppCompatActivity {
         final  EditText adate2=view.findViewById(R.id.subDate_a);
         final  EditText set=view.findViewById(R.id.set_id_a);
         final  EditText marks=view.findViewById(R.id.marks_a);
-
-
-
-
+        final EditText data=view.findViewById(R.id.description_a_text);
 
         builder.setView(view);
         builder.setTitle("Enter Details")
@@ -81,6 +94,7 @@ public class addAssignment extends AppCompatActivity {
                         String subjectText = subject.getText().toString().trim();
                         String adate1Text = adate1.getText().toString().trim();
                         String adate2Text = adate2.getText().toString().trim();
+                        String dataText = data.getText().toString().trim();
                         int setNumber=-1,mks=-1;
                         try {
                             setNumber = Integer.parseInt(set.getText().toString().trim());
@@ -97,11 +111,14 @@ public class addAssignment extends AppCompatActivity {
                                 Date date2 = dateFormat.parse(adate2Text);
 
                                 // Proceed with your logic
-                                addCard(nameText,subjectText,adate1Text,adate2Text,setNumber,mks);
+                                addCard(nameText,subjectText,adate1Text,adate2Text,setNumber,mks,dataText);
                             } catch (ParseException e) {
                                 // Show toast indicating date format error
                                 Toast.makeText(getApplicationContext(), "Please enter dates in the format yyyy-MM-dd", Toast.LENGTH_SHORT).show();
                             }
+
+
+
                         } else {
                             // Show toast indicating that all fields are required
                             Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_SHORT).show();
@@ -118,7 +135,7 @@ public class addAssignment extends AppCompatActivity {
         dialog = builder.create();
     }
 
-    private void addCard(String name,String subject,String adate,String sdate,int set,int mks) {
+    private void addCard(String name,String subject,String adate,String sdate,int set,int mks,String data) {
 
 
 

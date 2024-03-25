@@ -25,10 +25,10 @@ public class addTeacher extends AppCompatActivity {
 
 
     //Contact Details
-    private String email,contactNo,fatherEmail,permanentAddress,localAddress,district,state,pincode,Country,fatherNumber;
-
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+    private String email,contactNo,fatherEmail,permanentAddress,localAddress,district,state,pincode,Country,fatherNumber;
+
 
     private EditText etName,etDegree,etDepartment,etReligion,etCategory,etMotherName,etFatherName,etGender,etBloodGroup,etDOB,etTeacherCollogeId,etExperience,etTeacherID,etAadharNumber;
 
@@ -45,7 +45,6 @@ public class addTeacher extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-
         etName = findViewById(R.id.editTextName);
         etDegree = findViewById(R.id.editTextDegree);
         etDepartment = findViewById(R.id.editTextDepartment);
