@@ -46,10 +46,10 @@ public class attendanceMark extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.attendancestudent);
+        setContentView(R.layout.studentattendance);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        layout= findViewById(R.id.viewContainer);
+        layout= findViewById(R.id.container);
         back=findViewById(R.id.backFromProfile);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
@@ -240,10 +240,6 @@ public class attendanceMark extends AppCompatActivity {
 
         layout.addView(view);
 
-
-
-
-
     }
 
-}
+    }

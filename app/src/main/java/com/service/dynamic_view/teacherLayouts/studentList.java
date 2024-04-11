@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +44,8 @@ public class studentList extends AppCompatActivity{
     private TextView teachername,subjectname,todaydate,sectionname;
     private String teacherid,teachernaam,subjectnaam,sectionnaam;
     private String studentName,studentEnrollment;
-    AlertDialog dialog;
+    private AlertDialog dialog; TableLayout tableLayout;
+    private LinearLayout myLayout;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,7 @@ public class studentList extends AppCompatActivity{
         section = getIntent().getStringExtra("section");
         subject = getIntent().getStringExtra("subject");
 
+
         teachername=findViewById(R.id.teacher_name);
         subjectname=findViewById(R.id.subject_name);
         todaydate=findViewById(R.id.date);
@@ -64,6 +67,9 @@ public class studentList extends AppCompatActivity{
         todaydate.setText("Date: "+java.time.LocalDate.now());
         subjectname.setText("Subject: "+subject);
         sectionname.setText("Section: "+section);
+        myLayout = findViewById(R.id.attendanceList);
+
+        tableLayout = findViewById(R.id.attendanceL);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
@@ -120,7 +126,7 @@ public class studentList extends AppCompatActivity{
                             studentEnrollment=dataSnapshot.child("Personal Details").child("Enrollment Number").getValue().toString();
 //                            System.out.println("Student Name: "+studentName);
 //                            System.out.println("Student Enrollment: "+studentEnrollment);
-                            addCard(studentEnrollment,studentName,studID);
+                            add(studentEnrollment,studentName,studID);
 
                         }
 
@@ -379,7 +385,112 @@ public class studentList extends AppCompatActivity{
 //
 //
 //    }
+
+    private void add(String enrl, String naam, String stuId) {
+        final View view = getLayoutInflater().inflate(R.layout.student_attendance_struct, null);
+        TextView enrl1 = view.findViewById(R.id.enrl);
+        TextView name = view.findViewById(R.id.stdnaam);
+        Button present = view.findViewById(R.id.present);
+        Button absent = view.findViewById(R.id.absent);
+        enrl1.setText(enrl);
+        name.setText(naam);
+
+        // Set on click listeners for the present and absent buttons
+        present.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the reference to the location where attendance data is stored for the student
+                DatabaseReference mdata = FirebaseDatabase.getInstance().getReference()
+                        .child("studentAttendance").child(branch).child(semester)
+                        .child(section).child("attendance").child(subject).child(stuId);
+
+                // Get the current date in the desired format
+                java.util.Date date = new java.util.Date();
+                java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
+                String formattedDate = dateFormat.format(date);
+
+                // Add attendance data for present status
+                mdata.child(formattedDate).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        if (dataSnapshot.exists()) {
+//                            Toast.makeText(studentList.this, "Attendance for this date already exists", Toast.LENGTH_SHORT).show();
+//                        } else {
+                            // Add attendance data for present status
+                            java.util.Map<String, Object> atted = new java.util.HashMap<>();
+                            atted.put("end_time", "10:30");
+                            atted.put("period", (int) (Math.random() * 6 + 1)); // random value from 1 to 6
+                            atted.put("start_time", "09:30");
+                            atted.put("status", "Present");
+                            atted.put("teacher", teachernaam);
+                            mdata.child(formattedDate).updateChildren(atted);
+                        //present button background color change
+                        present.setBackgroundColor(getResources().getColor(R.color.adminGreen));
+                        absent.setBackgroundColor(getResources().getColor(R.color.white));
+                        Toast.makeText(studentList.this, "Attendance marked as Present for " + formattedDate, Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Handle any errors
+                        Log.e("Firebase", "Error checking attendance data: " + databaseError.getMessage());
+                    }
+                });
+            }
+        });
+
+        absent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the reference to the location where attendance data is stored for the student
+                DatabaseReference mdata = FirebaseDatabase.getInstance().getReference()
+                        .child("studentAttendance").child(branch).child(semester)
+                        .child(section).child("attendance").child(subject).child(stuId);
+
+                // Get the current date in the desired format
+                java.util.Date date = new java.util.Date();
+                java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
+                String formattedDate = dateFormat.format(date);
+
+                // Add attendance data for present status
+                java.util.Map<String, Object> atted = new java.util.HashMap<>();
+                atted.put("end_time", "10:30");
+                atted.put("period", (int) (Math.random() * 6 + 1));
+                atted.put("start_time", "09:30");
+                atted.put("status", "Absent");
+                atted.put("teacher", teachernaam);
+                mdata.child(formattedDate).updateChildren(atted);
+                present.setBackgroundColor(getResources().getColor(R.color.white));
+                absent.setBackgroundColor(getResources().getColor(R.color.adminRed));
+                Toast.makeText(studentList.this, "Attendance marked as Absent for " + formattedDate, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Separation
+//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+//                LinearLayout.LayoutParams.MATCH_PARENT,
+//                LinearLayout.LayoutParams.WRAP_CONTENT
+//        );
+//        params.setMargins(0, 20, 0, 0); // Set top margin of 20dp
+//        view.setLayoutParams(params); // Apply layout parameters to layouted
 //
+//
+//        tableLayout.addView(view);
+        //Separation
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(0, 20, 0, 0); // Set top margin of 20dp
+        view.setLayoutParams(params); // Apply layout parameters to layouted
+
+
+        myLayout.addView(view);
+    }
+
+
 
 
 

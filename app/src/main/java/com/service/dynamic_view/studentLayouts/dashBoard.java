@@ -32,6 +32,7 @@ public class dashBoard extends AppCompatActivity{
     private TextView studentnaam,wiseId,enrollmentNumber,academicYears;
     private String username,wiseid,enrollmentnumber,academicyears,studentId;
     private String branch, semester, section;
+    private String email;
 
     private Boolean check= false;//Check if the user is student or not
 
@@ -149,6 +150,7 @@ public class dashBoard extends AppCompatActivity{
             intent.putExtra("branch",branch);
             intent.putExtra("semester",semester);
             intent.putExtra("section",section);
+            intent.putExtra("email",email);
             this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);
@@ -159,6 +161,10 @@ public class dashBoard extends AppCompatActivity{
     public void goToExam(View view){
         try {
             Intent intent = new Intent(this, examView.class);
+            intent.putExtra("studentId",studentId);
+            intent.putExtra("branch",branch);
+            intent.putExtra("semester",semester);
+            intent.putExtra("section",section);
             this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);
@@ -172,6 +178,10 @@ public class dashBoard extends AppCompatActivity{
         try {
             Intent intent = new Intent(this, TeacherView.class);
 //            Toast.makeText(this, "Chala yeh toh", Toast.LENGTH_SHORT).show();
+            intent.putExtra("studentId",studentId);
+            intent.putExtra("branch",branch);
+            intent.putExtra("semester",semester);
+            intent.putExtra("section",section);
             this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);
@@ -244,6 +254,10 @@ public class dashBoard extends AppCompatActivity{
     public void goToFeedBack(View view) {
         try {
             Intent intent = new Intent(this, feedBack.class);
+            intent.putExtra("studentId",studentId);
+            intent.putExtra("branch",branch);
+            intent.putExtra("semester",semester);
+            intent.putExtra("section",section);
             this.startActivity(intent);
         } catch (Exception e) {
             System.out.println("This is error" + e);

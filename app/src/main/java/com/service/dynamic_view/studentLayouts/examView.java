@@ -2,6 +2,7 @@ package com.service.dynamic_view.studentLayouts;
 
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +12,25 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.service.dynamic_view.R;
 
 public class examView extends AppCompatActivity {
-    LinearLayout layout;
-    ImageView back;
-    TextView title_id ;
+    private LinearLayout layout;
+    private ImageView back;
+    private TextView title_id ;
+
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
+    private ProgressDialog progressDialog;
+
+    private FirebaseUser currentUser ;
+    private String branch, semester, section,studentId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +42,16 @@ public class examView extends AppCompatActivity {
         title_id=findViewById(R.id.title_id);
         title_id.setText("Exams");
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        studentId=getIntent().getStringExtra("studentId");
+        branch=getIntent().getStringExtra("branch");
+        semester=getIntent().getStringExtra("semester");
+        section=getIntent().getStringExtra("section");
+
+
+
         addCards();
         back.setOnClickListener(v -> {
             finish();
@@ -38,16 +62,35 @@ public class examView extends AppCompatActivity {
     public void addCards() {
         //Database of Exam sai hum haha data leke aaye
 
-        String name, subject, adata,sdata, data;
+        String name;
+        String adata;
+        String sdata;
+        String data;
         int set;
-        //Sample inputs
-        name = "Teacher Naam";
-        subject = "Subject Naam";
-        adata = "2021-12-12";
-        sdata = "2021-12-12";
-        set = 100;
-        data = "Sample Data";
-        addCard(name, subject, adata,sdata, set, data);
+
+        DatabaseReference examRef = FirebaseDatabase.getInstance().getReference().child("studentAttendance").child(branch).child(semester).child(section).child("Exam");
+        examRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for(DataSnapshot snapshot : task.getResult().getChildren()) {
+                    String subject = snapshot.getKey();
+                    System.out.println(subject);
+                    for(DataSnapshot snapshot1 : snapshot.getChildren()) {
+                        String date = snapshot1.getKey();
+                        System.out.println(date);
+                        String teacherName= snapshot1.child("Teacher Name").getValue().toString();
+                        String assignmentDate= snapshot1.child("Assigned Date").getValue().toString();
+                        String ExamDate= snapshot1.child("Exam Date").getValue().toString();
+                        String Marks= snapshot1.child("Marks").getValue().toString();
+                        String subName= snapshot1.child("Subject Name").getValue().toString();
+                        String topic_data= snapshot1.child("Topic Description").getValue().toString();
+                        System.out.println(teacherName+" "+assignmentDate+" "+ExamDate+" "+Marks+" "+subName+" "+topic_data);
+                        addCard(teacherName, subName, assignmentDate, ExamDate, Integer.parseInt(Marks), topic_data);
+
+                    }
+
+                }
+            }
+        });
     }
 
     private void addCard(String name, String subject, String adate, String sdate, int set, String data) {
@@ -80,6 +123,17 @@ public class examView extends AppCompatActivity {
 
         //Remove the view of delete ImageView
         delete.setVisibility(View.GONE);
+        delete.setEnabled(false);
+
+        //Separation set
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 2);
+        View view3 = new View(this);
+        view3.setLayoutParams(params);
+        view3.setBackgroundColor(getResources().getColor(R.color.black));
+        layout.addView(view3);
+        LinearLayout.LayoutParams paramss = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        paramss.setMargins(0, 0, 0, 15);
+        view2.setLayoutParams(paramss);
 
         layout.addView(view2);
     }

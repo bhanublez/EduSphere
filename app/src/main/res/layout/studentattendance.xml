@@ -42,7 +42,7 @@
             android:layout_marginLeft="2dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/backFromProfile"
-            android:text="Attendance Detail"
+            android:text="My Attendance"
             android:textColor="@color/black"
             android:textSize="24sp"
             tools:ignore="MissingConstraints"
@@ -116,24 +116,12 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Subject Name"
-        android:textSize="28dp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/profile_Lay"
-        tools:ignore="MissingConstraints" />
-
-
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="205dp"
+        android:layout_marginTop="180dp"
         android:background="@drawable/curve_bg_ek1"
         app:layout_constraintEnd_toEndOf="@+id/profile_Lay"
         app:layout_constraintHorizontal_bias="0.517"
